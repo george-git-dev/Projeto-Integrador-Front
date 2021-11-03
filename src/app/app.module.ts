@@ -16,7 +16,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     AppComponent,
     PaginaInicialComponent,
 
-    MenuComponent
+    MenuComponent,
 
     LoginComponent,
     CadastroComponent
