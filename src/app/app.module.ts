@@ -25,7 +25,10 @@ import { RodapeComponent } from './rodape/rodape.component';
     RodapeComponent,
   ],
 
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule,
+           AppRoutingModule,
+            HttpClientModule,
+             FormsModule],
 
   providers: [],
   bootstrap: [AppComponent],
