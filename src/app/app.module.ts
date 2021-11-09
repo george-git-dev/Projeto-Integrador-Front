@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { RodapeComponent } from './rodape/rodape.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,15 @@ import { InicioComponent } from './inicio/inicio.component';
     LoginComponent,
     CadastroComponent,
     InicioComponent,
+    RodapeComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule
+    
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
