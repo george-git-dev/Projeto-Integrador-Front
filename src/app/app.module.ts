@@ -22,7 +22,12 @@ import { InicioComponent } from './inicio/inicio.component';
     CadastroComponent,
     InicioComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    HttpClientModule, 
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
