@@ -24,12 +24,11 @@ import { RodapeComponent } from './rodape/rodape.component';
     InicioComponent,
     RodapeComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule
-    
-  ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule, 
+    AppRoutingModule, 
+    HttpClientModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
