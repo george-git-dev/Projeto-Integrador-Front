@@ -21,10 +21,7 @@ import { RodapeComponent } from './rodape/rodape.component';
     CadastroComponent,
     RodapeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
