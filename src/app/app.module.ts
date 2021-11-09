@@ -25,7 +25,6 @@ import { RodapeComponent } from './rodape/rodape.component';
     BrowserModule,
     AppRoutingModule
   ],
-  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
