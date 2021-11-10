@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
+import { CredenciaisDTO } from '../model/CredenciaisDTO';
+import { Usuario } from '../model/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +15,19 @@ export class AuthService {
   ) { }
 
 
-  entrar(userLogin: UserLogin): Observable <UserLogin>{
-    return this.http.post<UserLogin>('https://blogpessoalpablogen.herokuapp.com/usuarios/logar', userLogin)
+  entrar(userLogin: CredenciaisDTO): Observable <CredenciaisDTO>{
+    return this.http.put<CredenciaisDTO>('https://projetosinergy.herokuapp.com/api/v1/usuario/credenciais', userLogin)
   }
 
-  cadastrar(user: User): Observable<User>{
-    return this.http.post<User>('https://blogpessoalpablogen.herokuapp.com/usuarios/cadastrar', user)
+  cadastrar(user: Usuario): Observable<Usuario>{
+    return this.http.post<Usuario>('https://projetosinergy.herokuapp.com/api/v1/usuario/salvar', user)
 
   }
 
   logado(){
-    let ok = false
+    let ok:boolean = false
 
-    if (environment.token != ""){
+    if (environment.token != ''){
       ok = true
     }
 
