@@ -1,0 +1,8 @@
+#img-bg{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}

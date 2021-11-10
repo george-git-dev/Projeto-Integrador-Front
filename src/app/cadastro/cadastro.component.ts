@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Usuario } from '../model/Usuario';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -6,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
-  confirmSenha: Usuario = new Usuario();
+  usuario: Usuario = new Usuario();
+  confirmarSenha: string;
+  tipoUsuario: string;
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService, private router: Router) { }
+
+  ngOnInit() {
+    window.scroll(0, 0);
   }
 
   confirmSenha(event: any) {
@@ -22,8 +29,8 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
-    if (this.confirmarSenha.length < 5) {
-      alert('A senha deve ter no minimo 5 caracteres!');
+    if (this.confirmarSenha.length < 8) {
+      alert('A senha deve ter no minimo 8 caracteres!');
     } else {
       this.usuario.tipo = this.tipoUsuario;
 
@@ -32,7 +39,7 @@ export class CadastroComponent implements OnInit {
       } else {
         this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
           this.usuario = resp;
-          this.router.navigate(['/entrar']);
+          this.router.navigate(['/login']);
           alert('Cadastro realizado com sucesso!')
         })
       }
