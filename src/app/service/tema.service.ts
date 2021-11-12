@@ -19,4 +19,8 @@ export class TemaService {
       headers: new HttpHeaders().set('Authorization', environment.token)
     }
   }
+
+  putTema(tema: Tema): Observable<Tema>{
+    return this.http.put<Tema>("https://projetosinergy.herokuapp.com/api/v1/tema/salvar", tema, this.token)
+  }
 }

@@ -5,6 +5,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { MenuComponent } from './menu/menu.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'contato', component: ContatoComponent },
   { path: 'cadastrar', component: CadastroComponent },
   { path: 'inicio', component: InicioComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'tema-edit/:id', component: TemaEditComponent }
 ];
 
 @NgModule({

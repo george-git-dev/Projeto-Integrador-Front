@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { ContatoComponent } from './contato/contato.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
@@ -17,8 +16,7 @@ import { PostagemComponent } from './postagem/postagem.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PaginaInicialComponent,
+    AppComponent,    
     ContatoComponent,
     MenuComponent,
     LoginComponent,

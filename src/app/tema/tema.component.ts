@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { Tema } from '../model/Tema';
 import { PostagemService } from '../service/postagem.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { PostagemService } from '../service/postagem.service';
   styleUrls: ['./tema.component.css']
 })
 export class TemaComponent implements OnInit {
+  listaTemas: any[];
 
   constructor(
     private router: Router,
@@ -21,8 +23,14 @@ export class TemaComponent implements OnInit {
     if(environment.token == ''){
       this.router.navigate(['/entrar']);
     }
-
+    this.findAllTemas()
     this.temaService.refreshToken()
+  }
+
+  findAllTemas(){
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
+      this.listaTemas = resp
+    })
   }
 
 }
