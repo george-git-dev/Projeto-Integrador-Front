@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0);
+
+    environment.token = '' // Sempre que voltar para a pagina entrar, o token zera e o usuario deve fazer login novamente
   }
 
   entrar(){

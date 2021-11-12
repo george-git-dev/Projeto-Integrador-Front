@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
-import { PostagemService } from '../service/postagem.service';
+import { TemaService } from '../service/tema.service';
 
 @Component({
-  selector: 'app-tema',
-  templateUrl: './tema.component.html',
-  styleUrls: ['./tema.component.css']
+  selector: 'app-postagem',
+  templateUrl: './postagem.component.html',
+  styleUrls: ['./postagem.component.css']
 })
-export class TemaComponent implements OnInit {
+export class PostagemComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private temaService: PostagemService
+    private temaService: TemaService
   ) { }
 
   ngOnInit(){
