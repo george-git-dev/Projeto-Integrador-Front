@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Tema } from '../model/Tema';
-import { PostagemService } from '../service/postagem.service';
+import { TemaService } from '../service/tema.service';
 
 @Component({
   selector: 'app-tema',
@@ -10,18 +10,18 @@ import { PostagemService } from '../service/postagem.service';
   styleUrls: ['./tema.component.css']
 })
 export class TemaComponent implements OnInit {
-  listaTemas: any[];
+  listaTemas: Tema[];
 
   constructor(
     private router: Router,
-    private temaService: PostagemService
+    private temaService: TemaService
   ) { }
 
   ngOnInit(){
     window.scroll(0, 0);
 
     if(environment.token == ''){
-      this.router.navigate(['/entrar']);
+      this.router.navigate(['/login']);
     }
     this.findAllTemas()
     this.temaService.refreshToken()

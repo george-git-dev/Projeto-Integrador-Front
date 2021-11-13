@@ -6,6 +6,7 @@ import { MenuComponent } from './menu/menu.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+import { TemaComponent } from './tema/tema.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'cadastrar', component: CadastroComponent },
   { path: 'inicio', component: InicioComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'tema' , component: TemaComponent},
   { path: 'tema-edit/:id', component: TemaEditComponent }
 ];
 
