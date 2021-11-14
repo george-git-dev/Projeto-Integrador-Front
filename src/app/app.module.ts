@@ -13,6 +13,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { TemaComponent } from './tema/tema.component';
 import { PostagemComponent } from './postagem/postagem.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,10 @@ import { PostagemComponent } from './postagem/postagem.component';
     HttpClientModule,
     FormsModule],
 
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
