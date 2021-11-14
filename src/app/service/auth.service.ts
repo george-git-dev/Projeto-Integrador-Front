@@ -11,7 +11,7 @@ import { Usuario } from '../model/Usuario';
 export class AuthService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient // Vai liberar o GET, POST, PUT, DELETE pelo front
   ) { }
 
 
