@@ -1,7 +1,7 @@
 import { Postagem } from './Postagem';
 
 export class Usuario {
-  public id: number;
+  public idUsuario: number;
   public nome: string;
   public email: string;
   public senha: string;

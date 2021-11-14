@@ -1,3 +1,4 @@
+import {  HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -20,7 +21,7 @@ export class CadastroComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0);
 
-    environment.token = '' // Sempre que voltar para a pagina entrar, o token zera e o usuario deve fazer login novamente
+    environment.token = '' // Sempre que voltar para a pagina cadastrar, o token zera e o usuario deve fazer login novamente
   }
 
   confirmSenha(event: any) {

@@ -20,8 +20,12 @@ export class TemaService {
     }
   }
 
-  putTema(tema: Tema): Observable<Tema>{
-    return this.http.put<Tema>("https://projetosinergy.herokuapp.com/api/v1/tema/salvar", tema, this.token)
+  postTema(tema: Tema): Observable<Tema>{
+    return this.http.post<Tema>("https://projetosinergy.herokuapp.com/tema/salvar", tema, this.token)
+  }
+
+  getAllTemas(): Observable<Tema[]> {
+    return this.http.get<Tema[]>('https://projetosinergy.herokuapp.com/tema/todos', this.token)
   }
 
   getAllTema():Observable<Tema[]>  {

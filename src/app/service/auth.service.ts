@@ -11,16 +11,16 @@ import { Usuario } from '../model/Usuario';
 export class AuthService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient // Vai liberar o GET, POST, PUT, DELETE pelo front
   ) { }
 
 
   entrar(userLogin: CredenciaisDTO): Observable <CredenciaisDTO>{
-    return this.http.put<CredenciaisDTO>('https://projetosinergy.herokuapp.com/api/v1/usuario/credenciais', userLogin)
+    return this.http.put<CredenciaisDTO>('https://projetosinergy.herokuapp.com/usuario/logar', userLogin)
   }
 
   cadastrar(user: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>('https://projetosinergy.herokuapp.com/api/v1/usuario/salvar', user)
+    return this.http.post<Usuario>('https://projetosinergy.herokuapp.com/usuario/salvar', user)
 
   }
 

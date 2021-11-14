@@ -28,7 +28,12 @@ export class LoginComponent implements OnInit {
       environment.nome = this.usuarioLogin.nome;
       environment.email = this.usuarioLogin.email;
       environment.tipo = this.usuarioLogin.tipo;
-      environment.foto = this.usuarioLogin.foto;
+
+      if (this.usuarioLogin.foto == null) {
+        environment.foto ='https://cdn-icons-png.flaticon.com/512/74/74472.png';
+      } else {
+        environment.foto = this.usuarioLogin.foto;
+      }
 
       // console.log(environment.token)
       // console.log(environment.id)
