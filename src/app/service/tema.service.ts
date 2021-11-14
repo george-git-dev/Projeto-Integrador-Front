@@ -27,4 +27,8 @@ export class TemaService {
   getAllTemas(): Observable<Tema[]> {
     return this.http.get<Tema[]>('https://projetosinergy.herokuapp.com/tema/todos', this.token)
   }
+
+  getAllTema():Observable<Tema[]>  {
+    return this.http.get<Tema[]>('https://projetosinergy.herokuapp.com/api/v1/tema/todos', this.token)
+  }
 }
