@@ -8,9 +8,6 @@ import { Postagem } from '../model/Postagem';
   providedIn: 'root'
 })
 export class PostagemService {
-  getAllTema() {
-    throw new Error('Method not implemented.');
-  }
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +21,7 @@ export class PostagemService {
     }
   }
 
-  getAllTemas(): Observable<Postagem[]> {
-    return this.http.get<Postagem[]>('https://bloggscabuzzi.herokuapp.com/postagens/todos', this.token)
+  getAllPostagens(): Observable<Postagem[]> {
+    return this.http.get<Postagem[]>('https://projetosinergy.herokuapp.com/postagens/todos', this.token)
   }
 }
