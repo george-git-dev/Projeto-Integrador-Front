@@ -7,14 +7,11 @@ import { LoginComponent } from './login/login.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { TemaComponent } from './tema/tema.component';
 import { PostagemComponent } from './postagem/postagem.component';
-<<<<<<< HEAD
-import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
-=======
+
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
->>>>>>> 034925c4afe0f786d8956282991dbb034f78b67b
 
 
 const routes: Routes = [
@@ -27,15 +24,13 @@ const routes: Routes = [
   { path: 'postagem', component: PostagemComponent },
 
   { path: 'tema-edit/:id', component: TemaEditComponent },
-<<<<<<< HEAD
-  { path: 'postagem-edit/:id', component: PostagemEditComponent },
-=======
+
   { path: 'tema-delete/:id', component: TemaDeleteComponent },
   { path: 'postagem-edit/:id', component: PostagemEditComponent },
   { path: 'postagem-delete/:id', component: PostagemDeleteComponent },
   { path: 'usuario-edit/:id', component: UsuarioEditComponent }
   
->>>>>>> 034925c4afe0f786d8956282991dbb034f78b67b
+
 ];
 
 @NgModule({

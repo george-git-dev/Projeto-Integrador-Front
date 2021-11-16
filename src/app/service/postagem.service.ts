@@ -8,16 +8,6 @@ import { Postagem } from '../model/Postagem';
   providedIn: 'root'
 })
 export class PostagemService {
-<<<<<<< HEAD
-  
-  getByIdPostagem(id: number) {
-    throw new Error('Method not implemented.');
-  }
-  getAllTema() {
-    throw new Error('Method not implemented.');
-  }
-=======
->>>>>>> 034925c4afe0f786d8956282991dbb034f78b67b
 
   constructor(private http: HttpClient) {}
 
