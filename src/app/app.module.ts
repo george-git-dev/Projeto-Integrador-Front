@@ -14,6 +14,10 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { TemaComponent } from './tema/tema.component';
 import { PostagemComponent } from './postagem/postagem.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
+import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
+import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     RodapeComponent,
     TemaComponent,
     PostagemComponent,
+    TemaDeleteComponent,
+    PostagemEditComponent,
+    PostagemDeleteComponent,
+    TemaEditComponent,
   ],
 
   imports: [
