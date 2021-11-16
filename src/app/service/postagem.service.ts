@@ -21,7 +21,11 @@ export class PostagemService {
     }
   }
 
+  postPostagem(postagem: Postagem): Observable<Postagem>{
+    return this.http.post<Postagem>('https://projetosinergy.herokuapp.com/postagens/salvar', postagem, this.token)
+
   getAllPostagens(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>('https://projetosinergy.herokuapp.com/postagens/todos', this.token)
+
   }
 }
