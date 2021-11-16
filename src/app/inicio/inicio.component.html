@@ -90,11 +90,10 @@
 
             <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
                 aria-labelledby="nav-todasPostagens-tab">
-                <div class="card-columns">
-                    <div class="card text-center" *ngFor='let item of listaPostagens'>
+                <div class="card-columns" *ngFor='let tema of listaTema'>
+                    <div class="card text-center" *ngFor='let item of tema.postagens'>
                         <div class="card-body">
                             <h5 class="card-title m-0">{{item.titulo}}</h5>
-                            <small class="text-muted">Tema: {{item.tema.titulo}}</small>
                             <p class="card-text mt-3">{{item.texto}}</p>
                             <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} ás
                                     {{item.data

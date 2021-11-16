@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
+import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
+import { TemaService } from '../service/tema.service';
 
 @Component({
   selector: 'app-inicio',
@@ -15,14 +17,19 @@ export class InicioComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   usuario: Usuario = new Usuario()
+  tema: Tema = new Tema()
   
   listaPostagens: Postagem[]
+  listaTema: Tema[]
+
   idUsuario = environment.idUsuario
+  idTema: number
 
   constructor(
     private router: Router,
     private postagemService: PostagemService,
-    private authService: AuthService
+    private authService: AuthService,
+    private temaService: TemaService
   ) { }
 
   ngOnInit() {
@@ -34,7 +41,15 @@ export class InicioComponent implements OnInit {
 
     this.postagemService.refreshToken()
     this.authService.refreshToken()
+    this.temaService.refreshToken()
     this.getAllPostagens()
+    this.getAllTemas()
+  }
+
+  getAllTemas() {
+    this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
+      this.listaTema = resp
+    })
   }
 
   getAllPostagens() {
