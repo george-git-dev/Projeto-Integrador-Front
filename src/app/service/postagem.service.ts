@@ -8,6 +8,10 @@ import { Postagem } from '../model/Postagem';
   providedIn: 'root'
 })
 export class PostagemService {
+  
+  getByIdPostagem(id: number) {
+    throw new Error('Method not implemented.');
+  }
   getAllTema() {
     throw new Error('Method not implemented.');
   }
@@ -27,4 +31,9 @@ export class PostagemService {
   getAllTemas(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>('https://bloggscabuzzi.herokuapp.com/postagens/todos', this.token)
   }
+
+  putPostagem(postagem: Postagem): Observable<Postagem>{
+    return this.http.put<Postagem>('https://bloggscabuzzi.herokuapp.com/postagens/atualizar', postagem, this.token)
+  }
+
 }

@@ -1,65 +1,31 @@
 <div class="container-fluid">
 
     <div class="row bg-secondary d-flex align-items-center">
-
-        <div class="col-md-6">
-
+        <div class="col-md-6 text-white text-left">
             <div class="row d-flex justify-content-center">
-
-                <div class="col-md-6 text-white">
+                <div class="col-md-6">
                     <h1 class="fs-54">Seja bem vindo(a)!</h1>
-                    <p class="fs-18">expresse aqui os seus pensamento e opnioes!</p>
+                    <h5 class="fs-18">expresse aqui os seus pensamentos e opniões!</h5>
                 </div>
             </div>
-
             <div class="row d-flex justify-content-center mt-3 mb-5">
-
                 <div class="col-md-6">
-                    <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>
+                    <button class="btn btn-light mr-2" type="button" data-toggle="modal"
+                        data-target="#novaPostagem">Nova
+                        Postagem</button>
                     <a class="btn btn-outline-light" href="#postagens">Ver Postagens</a>
-
                 </div>
+
             </div>
         </div>
 
         <div class="col-md-6 d-flex justify-content-center">
-            <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px">
-
+            <img src="https://i.imgur.com/H88yIo2.png" width="500px" height="500px" alt="">
         </div>
+
     </div>
+
 </div>
-
-<div class="container mb-5 mt-5" id="postagens">
-    <nav>
-        <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
-
-            <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab"
-                data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens"
-                aria-selected="true">Todas as Postagens</a>
-
-            <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab"
-                href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
-                Postagens</a>
-
-            <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagensPorTema-tab" data-toggle="tab"
-                href="#postagensPorTema" role="tab" aria-controls="nav-postagensPorTema" aria-selected="false">Postagens
-                por tema</a>
-        </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-
-        <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
-            aria-labelledby="nav-todasPostagens-tab">Todas as postagens</div>
-
-        <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">Minhas
-            Postagens</div>
-
-        <div class="tab-pane fade" id="postagensPorTema" role="tabpanel" aria-labelledby="nav-postagensPorTema-tab">
-            Postagens por tema</div>
-    </div>
-</div>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
@@ -67,7 +33,6 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-
                 <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
@@ -76,27 +41,315 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="titulo">Título</label>
-                    <input type="text" class="form-control" id="titulo" placeholder="Digite o título"> 
+                    <input type="text" class="form-control" id="titulo" placeholder="Digite o título">
                 </div>
 
                 <div class="form-group">
                     <label for="texto">Texto</label>
-                    <textarea class="form-control" name="texto" id="texto" rows="3"></textarea>
+                    <textarea class="form-control" id="texto" rows="3"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="texto">Escolha um tema ou <a routerLink='/tema' data-dismiss="modal">cadastre um novo</a>: </label>
-                    <select name="tema" id="tema" class="form-control">
-                        <option value="">Temas</option>
-                    </select>
+                    <label for="tema">Escolha seu tema ou <a routerLink='/tema' data-dismiss="modal">cadastre um
+                            novo</a>:
+                    </label>
+                    <select class="form-control" id="tema"></select>
                 </div>
 
             </div>
-
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-outline-success">Publicar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Publicar</button>
             </div>
         </div>
     </div>
 </div>
+<!-- /Modal -->
+
+<!--Postagens-->
+
+<div class="container mt-5 mb-5" id="postagens">
+
+    <!--Navegação-->
+    <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active text-secondary font-weight-bold" id="todasPostagens-tab" data-toggle="tab"
+                href="#todasPostagens" role="tab" aria-controls="todasPostagens" aria-selected="true">Todas as
+                Postagens</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-secondary font-weight-bold" id="minhasPostagens-tab" data-toggle="tab"
+                href="#minhasPostagens" role="tab" aria-controls="profile" aria-selected="false">Minhas Postagens</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-secondary font-weight-bold" id="postagemPorTema-tab" data-toggle="tab"
+                href="#postagemPorTema" role="tab" aria-controls="profile" aria-selected="false">Postagens por Tema</a>
+        </li>
+    </ul>
+
+    <h2 class="text-center text-secondary mt-5">Não existem postagens ainda...</h2>
+
+    <!--/Navegação-->
+
+
+    <div class="tab-content" id="myTabContent">
+
+        <!--Todas as Postagens-->
+        <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="todasPostagens-tab">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6">
+                    <div class="form-group mt-5 mb-5">
+                        <input type="text" class="form-control" id="titulo"
+                            placeholder="Digite um titulo de postagem para pesquisar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8 ">
+                    <div class="card rounded mb-5">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-1 p-0 d-flex justify-content-center">
+                                    <img class=rounded-circle width="50px" height="50px" />
+                                </div>
+                                <div class="col-11 p-0">
+                                    <h5 class="card-title m-0"></h5>
+                                    <small class="text-muted"></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title m-0"></h6>
+                            <p class="card-text mt-3"></p>
+                            <small class="text-muted">Tema:</small>
+
+                        </div>
+                        <div class="card-footer text-muted">
+
+                            <div class="row">
+                                <div class="col-2 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="display: none;">
+                                    <label class="curtir font-weight-bold m-0"><i class="fa fa-thumbs-up"
+                                            aria-hidden="true"></i> Curtir</label>
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <!--Comentarios -->
+                                    <div class="accordion m-0 p-0" [attr.id]="'coment'">
+
+                                        <a class="collapsed p-0" type="button" data-toggle="collapse"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            <p class="text-secondary font-weight-bold mb-0 comentar">
+                                                <i class="fa fa-commenting-o" aria-hidden="true"></i> Comentar
+                                            </p>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div [attr.id]="'comentButton'" class="collapse" aria-labelledby="headingTwo"
+                                        [attr.data-parent]="'#' + 'coment'">
+
+                                        <div class="row mb-3">
+                                            <div class="col d-flex justify-content-center align-items-center p-4">
+                                                <img class="rounded-circle mr-3" width="30px" height="30px" />
+                                                <div class="input-group w-100">
+                                                    <input type="text" class="form-control mr-2"
+                                                        placeholder="Digite aqui seu comentário"
+                                                        aria-label="Recipient's username"
+                                                        aria-describedby="button-addon2" id='inputComentario'>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-primary"
+                                                            id="button-addon2">Comentar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-11">
+                                                <div class="card mb-3 shadow border-0 rounded">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col d-flex justify-content-start">
+                                                                <p> <img class=rounded-circle width="30px"
+                                                                        height="30px" />comentou: </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <p class="card-text ml-4" aria-describedby="texto"></p>
+                                                            </div>
+                                                        </div>
+
+                                                        <hr>
+
+                                                        <div class="d-flex justify-content-end">
+                                                            <small id="texto"
+                                                                class="form-text m-0 text-muted text-monospace">Comentado
+                                                                em</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/Comentarios-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!--/Todas as Postagens-->
+
+        <!--Minhas Postagens-->
+        <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="minhasPostagens-tab">
+            <div class="row d-flex justify-content-center mt-5">
+                <div class="col-md-8 ">
+                    <div class="card rounded mb-5">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-1 p-0 d-flex justify-content-center">
+                                    <img class=rounded-circle width="50px" height="50px" />
+                                </div>
+                                <div class="col-9 p-0">
+                                    <h5 class="card-title m-0"></h5>
+                                    <small class="text-muted"></small>
+                                </div>
+                                <div class="col-md-2 p-0">
+                                    <a class="text-info mr-3"
+                                        href="">Editar</a>
+                                    <a class="text-danger"
+                                        href="">Apagar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title m-0"></h6>
+                            <p class="card-text mt-3"></p>
+                            <small class="text-muted">Tema:</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/Minhas Postagens-->
+
+        <!--Postagem por tema-->
+        <div class="tab-pane fade" id="postagemPorTema" role="tabpanel" aria-labelledby="postagemPorTema-tab">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-4">
+                    <div class="form-group mt-5 mb-5">
+                        <input type="text" class="form-control" id="titulo" placeholder="Digite um tema para pesquisa">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8">
+                    <div class="card rounded mb-5">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-1 p-0 d-flex justify-content-center">
+                                    <img class=rounded-circle width="50px" height="50px" />
+                                </div>
+                                <div class="col-11 p-0">
+                                    <h5 class="card-title m-0"></h5>
+                                    <small class="text-muted"></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title m-0"></h6>
+                            <p class="card-text mt-3"></p>
+                            <small class="text-muted">Tema: </small>
+
+                        </div>
+                        <div class="card-footer text-muted">
+
+                            <!--Comentarios -->
+                            <div class="accordion">
+
+                                <div class="mt-2" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed text-dark" type="button"
+                                            data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                                            <p class="text-secondary font-weight-bold mb-0 comentar">
+                                                <i class="fa fa-commenting-o" aria-hidden="true"></i> Comentar
+                                            </p>
+                                        </button>
+                                    </h5>
+                                </div>
+
+                                <div [attr.id]>
+
+                                    <div class="row mb-3">
+                                        <div class="col d-flex justify-content-center align-items-center p-4">
+                                            <img class="rounded-circle mr-3" width="30px" height="30px" />
+                                            <div class="input-group w-100">
+                                                <input type="text" class="form-control mr-2"
+                                                    placeholder="Digite aqui seu comentário"
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    id='inputComentario'>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-primary"
+                                                        id="button-addon2">Comentar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-md-11">
+                                            <div class="card mb-3 shadow border-0 rounded">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col d-flex justify-content-start">
+                                                            <p> <img class=rounded-circle width="30px" height="30px" />
+                                                                comentou: </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="card-text ml-4" aria-describedby="texto">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr>
+
+                                                    <div class="d-flex justify-content-end">
+                                                        <small id="texto"
+                                                            class="form-text m-0 text-muted text-monospace">
+                                                            Comentado em </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/Comentarios-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/Postagem por tema-->
+
+    </div>
+</div>
+<!--/Postagens-->

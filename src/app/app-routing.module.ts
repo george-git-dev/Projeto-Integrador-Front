@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { TemaComponent } from './tema/tema.component';
 import { PostagemComponent } from './postagem/postagem.component';
+import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'tema', component: TemaComponent },
   { path: 'postagem', component: PostagemComponent },
 
-  { path: 'tema-edit/:id', component: TemaEditComponent }
+  { path: 'tema-edit/:id', component: TemaEditComponent },
+  { path: 'postagem-edit/:id', component: PostagemEditComponent },
 ];
 
 @NgModule({
