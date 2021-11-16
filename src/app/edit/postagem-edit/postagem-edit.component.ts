@@ -8,6 +8,7 @@ import { Postagem } from './../../model/Postagem';
 
 
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-postagem-edit',
@@ -15,6 +16,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./postagem-edit.component.css']
 })
 export class PostagemEditComponent implements OnInit {
+
 
   postagem: Postagem = new Postagem()
 
@@ -32,12 +34,12 @@ export class PostagemEditComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0)
-    /*
+
     if (environment.token == '') {
-      this.alertas.showAlertInfo('Seu token expirou, faça o login novamente.')
+      // this.alertas.showAlertInfo('Seu token expirou, faça o login novamente.')
       this.router.navigate(['/login'])
     }
-    */
+
     let idPost = this.route.snapshot.params['id']
     //    this.findByIdPostagem(idPost)
 
@@ -63,7 +65,7 @@ export class PostagemEditComponent implements OnInit {
     }
   */
   atualizar() {
-    //    this.tema.id = this.idTema
+    this.tema.idTema = this.idTema
     this.postagem.tema = this.tema
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
@@ -71,8 +73,6 @@ export class PostagemEditComponent implements OnInit {
       this.router.navigate(['/inicio'])
     })
 
-
   }
-
 
 }

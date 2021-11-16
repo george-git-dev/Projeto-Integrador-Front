@@ -30,7 +30,7 @@ export class PostagemService {
   }
 
   putPostagem(postagem: Postagem): Observable<Postagem>{
-    return this.http.put<Postagem>('https://bloggscabuzzi.herokuapp.com/postagens/atualizar', postagem, this.token)
+    return this.http.put<Postagem>('https://projetosinergy.herokuapp.com/postagens/atualizar', postagem, this.token)
   }
 
 }
