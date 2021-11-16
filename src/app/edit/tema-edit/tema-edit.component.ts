@@ -24,7 +24,7 @@ tema: Tema = new Tema()
     if(environment.token == ''){
       this.router.navigate(['/login']);
     }
-    
+    this.temaService.refreshToken()
     let id = this.route.snapshot.params['id']
     this.findByIdTema(id)
   }
