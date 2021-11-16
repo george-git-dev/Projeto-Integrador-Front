@@ -9,7 +9,10 @@
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="fa nav-link" href="index.html">Home<span class="sr-only">(página atual)</span></a>
+                <a class="fa nav-link" routerLink='/inicio'>Home<span class="sr-only">(página atual)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="fa nav-link" [routerLink]="['/usuario-edit', id]">Meu perfil</a>
             </li>
 
         </ul>
@@ -28,7 +31,7 @@
             <p class="m-0 font-weight-bold text-white fs-16">{{nome}}</p>
     
     
-            <button class="btn btn-outline-danger my-2 my-sm-0 ml-3" routerLink='/login' type="submit">Sair</button>
+            <button (click)='sair()' class="btn btn-outline-danger my-2 my-sm-0 ml-3" type="submit">Sair</button>
     
           
         </div>

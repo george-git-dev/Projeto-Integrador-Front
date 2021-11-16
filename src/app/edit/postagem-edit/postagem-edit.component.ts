@@ -5,6 +5,8 @@ import { Tema } from './../../model/Tema';
 import { PostagemService } from './../../service/postagem.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Postagem } from './../../model/Postagem';
+
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -25,7 +27,7 @@ export class PostagemEditComponent implements OnInit {
     private route: ActivatedRoute,
     private postagemService: PostagemService,
     private temaService: TemaService
-    
+
   ) { }
 
   ngOnInit() {
@@ -37,37 +39,40 @@ export class PostagemEditComponent implements OnInit {
     }
     */
     let idPost = this.route.snapshot.params['id']
-//    this.findByIdPostagem(idPost)
+    //    this.findByIdPostagem(idPost)
 
     this.findAllTemas()
   }
-/*
-  findByIdPostagem(id: number) {
-    this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) => {
-      this.postagem = resp
-    })
-  }
-*/
+  /*
+    findByIdPostagem(id: number) {
+      this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) => {
+        this.postagem = resp
+      })
+    }
+  */
   findAllTemas() {
     this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })
   }
-/*
-  findByIdTema() {
-    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
-      this.tema = resp
-    })
-  }
-*/
+  /*
+    findByIdTema() {
+      this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
+        this.tema = resp
+      })
+    }
+  */
   atualizar() {
-//    this.tema.id = this.idTema
+    //    this.tema.id = this.idTema
     this.postagem.tema = this.tema
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-//      this.alertas.showAlertSuccess('Postagem atualizada!')
+      //      this.alertas.showAlertSuccess('Postagem atualizada!')
       this.router.navigate(['/inicio'])
     })
+
+
   }
+
 
 }
