@@ -21,7 +21,7 @@ export class TemaService {
   }
 
   postTema(tema: Tema): Observable<Tema>{
-    return this.http.post<Tema>("https://projetosinergy.herokuapp.com/tema/salvar", tema, this.token)
+    return this.http.post<Tema>('https://projetosinergy.herokuapp.com/tema/salvar', tema, this.token)
   }
 
   getAllTemas(): Observable<Tema[]> {
@@ -29,14 +29,15 @@ export class TemaService {
   }
 
   getByIdTema(id: number): Observable<Tema>{
-    return this.http.get<Tema>(`https://bloggscabuzzi.herokuapp.com/temas/${id}`, this.token)
+    return this.http.get<Tema>(`https://projetosinergy.herokuapp.com/tema/${id}`, this.token)
   }
 
   putTema(tema: Tema): Observable<Tema> {
-    return this.http.put<Tema>('https://bloggscabuzzi.herokuapp.com/temas/put', tema, this.token)
+    return this.http.put<Tema>('https://projetosinergy.herokuapp.com/tema/atualizar', tema, this.token)
   }
 
   deleteTema(id: number){
-    return this.http.delete(`https://bloggscabuzzi.herokuapp.com/temas/delete/${id}`, this.token)
+    return this.http.delete(`https://projetosinergy.herokuapp.com/tema/deletar/${id}`, this.token)
+
   }
 }

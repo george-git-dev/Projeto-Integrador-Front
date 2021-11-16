@@ -11,8 +11,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class TemaEditComponent implements OnInit {
 
-  tema: Tema = new Tema()
-
+tema: Tema = new Tema()
   constructor(
     private router: Router,
     private temaService: TemaService,
@@ -23,9 +22,9 @@ export class TemaEditComponent implements OnInit {
     window.scroll(0, 0);
 
     if(environment.token == ''){
-      this.router.navigate(['/entrar']);
+      this.router.navigate(['/login']);
     }
-
+    
     let id = this.route.snapshot.params['id']
     this.findByIdTema(id)
   }

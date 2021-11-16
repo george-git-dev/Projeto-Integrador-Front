@@ -9,7 +9,7 @@ export class PostagemDeleteComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
 }

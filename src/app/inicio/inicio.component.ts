@@ -13,7 +13,7 @@ export class InicioComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     window.scroll(0, 0);
 
     if(environment.token == ''){
