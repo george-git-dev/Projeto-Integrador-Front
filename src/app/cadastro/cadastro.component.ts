@@ -1,5 +1,7 @@
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
 import { AuthService } from '../service/auth.service';
 
@@ -12,9 +14,14 @@ export class CadastroComponent implements OnInit {
   usuario: Usuario = new Usuario();
   confirmarSenha: string;
   tipoUsuario: string;
+
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    window.scroll(0, 0);
+
+    environment.token = ''; // Sempre que voltar para a pagina cadastrar, o token zera e o usuario deve fazer login novamente
+  }
 
   confirmSenha(event: any) {
     this.confirmarSenha = event.target.value;
@@ -25,8 +32,8 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
-    if (this.confirmarSenha.length < 5) {
-      alert('A senha deve ter no minimo 5 caracteres!');
+    if (this.confirmarSenha.length < 8) {
+      alert('A senha deve ter no minimo 8 caracteres!');
     } else {
       this.usuario.tipo = this.tipoUsuario;
 
@@ -35,7 +42,7 @@ export class CadastroComponent implements OnInit {
       } else {
         this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
           this.usuario = resp;
-          this.router.navigate(['/entrar']);
+          this.router.navigate(['/login']);
           alert('Cadastro realizado com sucesso!');
         });
       }

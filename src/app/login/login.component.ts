@@ -16,6 +16,8 @@ export class EntrarComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0);
+
+    environment.token = ''; // Sempre que voltar para a pagina entrar, o token zera e o usuario deve fazer login novamente
   }
 
   entrar() {
@@ -23,18 +25,30 @@ export class EntrarComponent implements OnInit {
       (resp: CredenciaisDTO) => {
         this.userLogin = resp;
         environment.token = this.userLogin.token;
-        environment.nome = this.userLogin.nome;
-        environment.foto = this.userLogin.foto;
         environment.idUsuario = this.userLogin.idUsuario;
+        environment.nome = this.userLogin.nome;
         environment.email = this.userLogin.email;
-        environment.email = this.userLogin.email;
+        environment.tipo = this.userLogin.tipo;
 
+        if (this.userLogin.foto == null) {
+          environment.foto =
+            'https://cdn-icons-png.flaticon.com/512/74/74472.png';
+        } else {
+          environment.foto = this.userLogin.foto;
+        }
+
+        // console.log(environment.token)
+        // console.log(environment.id)
+        // console.log(environment.nome)
+        // console.log(environment.email)
+        // console.log(environment.tipo)
+        // console.log(environment.foto)
 
         this.router.navigate(['/inicio']);
       },
       (erro) => {
         if (erro.status == 400) {
-          alert('Usuário ou senha estão incorretos!');
+          alert('Usuário ou senha inválidos!');
         }
       }
     );
