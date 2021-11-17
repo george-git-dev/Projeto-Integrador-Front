@@ -125,10 +125,6 @@
 
     </div>
 
-
-
-
-
 </div>
 
 <!-- Modal -->
@@ -159,8 +155,10 @@
 
                     <label for="texto">Escolha um tema ou <a routerLink='/tema' data-dismiss="modal">cadastre um
                             novo</a>: </label>
-                    <select name="tema" id="tema" class="form-control">
-                        <option>$tema</option>
+                    <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
+                        <option *ngFor='let item of listaTema' value="{{item.idTema}}">
+                            {{item.titulo}}
+                        </option>
                     </select>
 
                 </div>
