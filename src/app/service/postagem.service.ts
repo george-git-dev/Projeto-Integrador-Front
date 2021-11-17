@@ -25,6 +25,11 @@ export class PostagemService {
     return this.http.post<Postagem>('https://projetosinergy.herokuapp.com/postagens/salvar', postagem, this.token)
   }
 
+  getPostagemById(id: number): Observable<Postagem>{
+    return this.http.get<Postagem>(`https://projetosinergy.herokuapp.com/postagens/${id}`, this.token)
+  }
+
+
   getAllPostagens(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>('https://projetosinergy.herokuapp.com/postagens/todos', this.token)
   }

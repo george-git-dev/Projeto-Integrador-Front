@@ -10,7 +10,7 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class EntrarComponent implements OnInit {
-  userLogin: CredenciaisDTO = new CredenciaisDTO();
+  usuarioLogin: CredenciaisDTO = new CredenciaisDTO();
 
   constructor(private auth: AuthService, private router: Router) {}
 
@@ -21,20 +21,20 @@ export class EntrarComponent implements OnInit {
   }
 
   entrar() {
-    this.auth.entrar(this.userLogin).subscribe(
+    this.auth.entrar(this.usuarioLogin).subscribe(
       (resp: CredenciaisDTO) => {
-        this.userLogin = resp;
-        environment.token = this.userLogin.token;
-        environment.idUsuario = this.userLogin.idUsuario;
-        environment.nome = this.userLogin.nome;
-        environment.email = this.userLogin.email;
-        environment.tipo = this.userLogin.tipo;
+        this.usuarioLogin = resp;
+        environment.token = this.usuarioLogin.token;
+        environment.idUsuario = this.usuarioLogin.idUsuario;
+        environment.nome = this.usuarioLogin.nome;
+        environment.email = this.usuarioLogin.email;
+        environment.tipo = this.usuarioLogin.tipo;
 
-        if (this.userLogin.foto == null) {
+        if (this.usuarioLogin.foto == null) {
           environment.foto =
             'https://cdn-icons-png.flaticon.com/512/74/74472.png';
         } else {
-          environment.foto = this.userLogin.foto;
+          environment.foto = this.usuarioLogin.foto;
         }
 
         // console.log(environment.token)
