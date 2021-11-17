@@ -1,35 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
+import { CredenciaisDTO } from '../model/CredenciaisDTO';
+import { Usuario } from '../model/Usuario';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient
-  ) { }
-
-
-  entrar(userLogin: UserLogin): Observable <UserLogin>{
-    return this.http.post<UserLogin>('https://blogpessoalpablogen.herokuapp.com/usuarios/logar', userLogin)
+  entrar(credenciais: CredenciaisDTO): Observable<CredenciaisDTO> {
+    return this.http.post<CredenciaisDTO>(
+      'https://projetosinergy.herokuapp.com/usuarios/logar',
+      credenciais
+    );
   }
 
-  cadastrar(user: User): Observable<User>{
-    return this.http.post<User>('https://blogpessoalpablogen.herokuapp.com/usuarios/cadastrar', user)
-
+  cadastrar(user: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(
+      'https://blogpessoalpablogen.herokuapp.com/usuarios/cadastrar',
+      user
+    );
   }
 
-  logado(){
-    let ok = false
+  logado() {
+    let ok = false;
 
-    if (environment.token != ""){
-      ok = true
+    if (environment.token != '') {
+      ok = true;
     }
 
-    return ok
+    return ok;
   }
-
-
 }
