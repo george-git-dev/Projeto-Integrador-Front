@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Tema } from '../model/Tema';
-import { Usuario } from '../model/Usuario';
 import { TemaService } from '../service/tema.service';
 
 @Component({
@@ -42,7 +41,7 @@ export class TemaComponent implements OnInit {
   }
 
   cadastrar(){
-    this.temaService.postTema(this.tema).subscribe((resp: Tema)=>{
+    this.temaService.postTema(this.tema).subscribe((resp: Tema) => {
       this.tema = resp
       alert('Tema cadastrado com sucesso!')
       this.findAllTemas()

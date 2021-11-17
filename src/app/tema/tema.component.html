@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid pt-5">
 
     <div class="row bg-secondary">
 
@@ -52,11 +52,10 @@
                     <tr *ngFor='let item of listaTemas'>
                         <th>{{item.idTema}}</th>
                         <td>{{item.titulo}}</td>
+                        <td>{{item.criador}}</td>
                         <td class="d-flex justify-content-end">
-                            <!-- <a class="btn btn-info mr-3" [routerLink]="['/tema-edit', tema.id] ">Editar</a>
-                            <button class="btn btn-danger" [routerLink]="['/tema-delete', tema.id]">Apagar</button> -->
-                            <button class="btn btn-info mr-3" >Editar</button>
-                            <button class="btn btn-danger">Apagar</button>
+                            <button class="btn btn-info mr-3" [routerLink]="['/tema-edit', item.idTema] ">Editar</button>
+                            <button class="btn btn-danger" [routerLink]="['/tema-delete', item.idTema]">Apagar</button>
                         </td>
                     </tr>
                 </tbody>
