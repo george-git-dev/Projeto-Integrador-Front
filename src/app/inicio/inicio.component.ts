@@ -52,15 +52,15 @@ export class InicioComponent implements OnInit {
     })
   }
 
-  getAllPostagens() {
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
-      this.listaPostagens = resp
+  findByIdTema() {
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
+      this.tema = resp
     })
   }
 
-  findByIdTema(){
-    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
-      this.tema = resp
+  getAllPostagens() {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
+      this.listaPostagens = resp
     })
   }
 
@@ -70,11 +70,7 @@ export class InicioComponent implements OnInit {
     })
   }
 
-  findAllPostagens(){
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
-      this.listaPostagens = resp
-    })
-  }
+
 
   publicar(){
     this.tema.idTema = this.idTema
@@ -87,7 +83,7 @@ export class InicioComponent implements OnInit {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
-      this.findAllPostagens()
+      this.getAllPostagens()
     })
   }
 
