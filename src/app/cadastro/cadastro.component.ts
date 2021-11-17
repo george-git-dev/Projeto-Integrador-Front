@@ -1,4 +1,4 @@
-import {  HttpStatusCode } from '@angular/common/http';
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -8,20 +8,19 @@ import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
   usuario: Usuario = new Usuario();
   confirmarSenha: string;
   tipoUsuario: string;
 
-
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     window.scroll(0, 0);
 
-    environment.token = '' // Sempre que voltar para a pagina cadastrar, o token zera e o usuario deve fazer login novamente
+    environment.token = ''; // Sempre que voltar para a pagina cadastrar, o token zera e o usuario deve fazer login novamente
   }
 
   confirmSenha(event: any) {
@@ -44,10 +43,9 @@ export class CadastroComponent implements OnInit {
         this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
           this.usuario = resp;
           this.router.navigate(['/login']);
-          alert('Cadastro realizado com sucesso!')
-        })
+          alert('Cadastro realizado com sucesso!');
+        });
       }
     }
   }
-
 }

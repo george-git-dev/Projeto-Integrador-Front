@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContatoComponent } from './contato/contato.component';
 import { MenuComponent } from './menu/menu.component';
-import { LoginComponent } from './login/login.component';
+import { EntrarComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { RodapeComponent } from './rodape/rodape.component';
@@ -22,10 +22,10 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,
     ContatoComponent,
     MenuComponent,
-    LoginComponent,
+    EntrarComponent,
     CadastroComponent,
     InicioComponent,
     RodapeComponent,
@@ -38,16 +38,14 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
     UsuarioEditComponent,
   ],
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
 
-  providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
