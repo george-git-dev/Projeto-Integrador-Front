@@ -58,41 +58,46 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid" id="img-bg">
 
-  <div class="row d-flex align-items-center">
+  <div class="row d-flex justify-content-center vh-100">
 
-    <div class="col-md-6">
-      <div class="row d-flex justify-content-center align-items-center">
-        <h1><strong>Sinergy</strong></h1>
+    <div class="container d-flex align-items-center">
+
+      <div class="col-md-6">
+        <div class="row d-flex justify-content-center align-items-center">
+          <h1><strong>Sinergy</strong></h1>
+        </div>
+      </div>
+  
+      <div class="col-md-6 d-flex justify-content-center">
+        <div class="wrapper">
+          <div class="title">Entrar</div>
+          <form action="#">
+            <div class="field">
+              <input [(ngModel)]="usuarioLogin.email" class="form-control" type="text" name="usuario" id="usuario"
+                placeholder="Seu usuário" />
+              <label for="email">Email</label>
+            </div>
+  
+            <div class="field">
+              <input [(ngModel)]="usuarioLogin.senha" class="form-control" type="password" name="senha" id="senha"
+                placeholder="Sua senha" />
+              <label for="senha">Senha</label>
+            </div>
+  
+            <div class="field">
+              <input type="submit" class="btn btn-success" (click)="entrar()" />
+            </div>
+            <div class="signup-link">
+              Não é um membro? <a routerLink="/cadastrar">Cadastre-se!</a>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="wrapper">
-        <div class="title">Entrar</div>
-        <form action="#">
-          <div class="field">
-            <input [(ngModel)]="usuarioLogin.email" class="form-control" type="text" name="usuario" id="usuario"
-              placeholder="Seu usuário" />
-            <label for="email">Email</label>
-          </div>
-
-          <div class="field">
-            <input [(ngModel)]="usuarioLogin.senha" class="form-control" type="password" name="senha" id="senha"
-              placeholder="Sua senha" />
-            <label for="senha">Senha</label>
-          </div>
-
-          <div class="field">
-            <input type="submit" class="btn btn-success" (click)="entrar()" />
-          </div>
-          <div class="signup-link">
-            Não é um membro? <a routerLink="/cadastrar">Cadastre-se!</a>
-          </div>
-        </form>
-      </div>
-    </div>
+    
 
   </div>
 </div>
