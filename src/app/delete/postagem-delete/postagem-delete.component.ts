@@ -30,6 +30,7 @@ export class PostagemDeleteComponent implements OnInit {
       // this.alertas.showAlertInfo('Seu token expirou, faça o login novamente.')
       this.router.navigate(['/login']);
     }
+    this.postagemService.refreshToken()
     this.idPostagem = this.route.snapshot.params['id'];
     this.findByIdPostagem(this.idPostagem);
   }
