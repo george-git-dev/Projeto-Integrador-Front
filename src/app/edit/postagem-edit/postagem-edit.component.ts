@@ -40,36 +40,39 @@ export class PostagemEditComponent implements OnInit {
       this.router.navigate(['/login'])
     }
 
+    this.postagemService.refreshToken()
+    this.temaService.refreshToken()
+
     let idPost = this.route.snapshot.params['id']
-        this.findByIdPostagem(idPost)
+    this.findByIdPostagem(idPost)
 
     this.findAllTemas()
   }
-  
-    findByIdPostagem(id: number) {
-      this.postagemService.getPostagemById(id).subscribe((resp: Postagem) => {
-        this.postagem = resp
-      })
-    }
-  
+
+  findByIdPostagem(id: number) {
+    this.postagemService.getPostagemById(id).subscribe((resp: Postagem) => {
+      this.postagem = resp
+    })
+  }
+
   findAllTemas() {
     this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })
   }
-  
-    findByIdTema() {
-      this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
-        this.tema = resp
-      })
-    }
-  
+
+  findByIdTema() {
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
+      this.tema = resp
+    })
+  }
+
   atualizar() {
     this.tema.idTema = this.idTema
     this.postagem.tema = this.tema
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      //      this.alertas.showAlertSuccess('Postagem atualizada!')
+      alert('Postagem atualizada!')
       this.router.navigate(['/inicio'])
     })
 
