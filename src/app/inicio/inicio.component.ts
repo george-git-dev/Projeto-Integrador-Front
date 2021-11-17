@@ -68,7 +68,23 @@ export class InicioComponent implements OnInit {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
+  }
 
+
+
+  publicar(){
+    this.tema.idTema = this.idTema
+    this.postagem.tema = this.tema
+
+    this.usuario.idUsuario = this.idUsuario
+    this.postagem.usuario = this.usuario
+
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+      this.postagem = resp
+      alert('Postagem realizada com sucesso!')
+      this.postagem = new Postagem()
+      this.getAllPostagens()
+    })
   }
 
 
