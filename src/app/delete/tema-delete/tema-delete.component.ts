@@ -10,9 +10,10 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./tema-delete.component.css']
 })
 export class TemaDeleteComponent implements OnInit {
-  
+
   tema: Tema = new Tema()
   listaTemas: Tema[]
+  idTema: number;
 
   constructor(
     private router: Router,
@@ -30,7 +31,7 @@ export class TemaDeleteComponent implements OnInit {
 
     this.temaService.refreshToken()
   }
-  
+
   cadastrar(){
     this.temaService.postTema(this.tema).subscribe((resp: Tema)=>{
       this.tema = resp
@@ -43,6 +44,13 @@ export class TemaDeleteComponent implements OnInit {
   findAllTemas(){
     this.temaService.getAllTemas().subscribe((resp: Tema[]) =>{
       this.listaTemas = resp
+    })
+  }
+
+  apagarTema(){
+    this.temaService.deleteTema(this.idTema).subscribe(()=>{
+      alert("Tema deletado.")
+      this.router.navigate(['/tema'])
     })
   }
 
