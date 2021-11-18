@@ -192,9 +192,56 @@
                                         <p class="card-text"><small class="text-muted">fdsa</small></p>
                                         <p class="card-text"><small class="text-muted">fdsa</small>
                                         </p> -->
-                </div>
-              </div>
-            </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
+                            aria-labelledby="nav-todasPostagens-tab">
+
+                            <div class=" text-center mb-4" *ngFor='let item of listaPostagens.reverse()'>
+                                <div class="wrapper">
+                                    <div class="p-3">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-3">
+                                                <img src="{{item.usuario.foto}}" alt="imagem-usuario"
+                                                    class="rounded-circle" width="100px">
+                                                <p class=""><small class="">
+                                                        {{item.usuario.nome}}</small>
+                                                </p>
+                                                <p class="card-text"><small class="text-muted">{{item.date | date:
+                                                        'dd/MM/yyyy'}} ás {{item.date | date: 'HH:mm'}}</small>   
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="col-md-9">
+                                                <div class="row d-flex align-items-start">
+                                                    <div class="col-md-12 d-flex justify-content-center">
+                                                        <h5>{{item.titulo}}</h5>
+                                                       
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="row d-flex justify-content-center">
+                                                    <p class="text-muted"><strong>Tema:</strong> {{item.tema.titulo}}</p>
+                                                </div>
+
+                                                <div class="row text-center px-4">
+                                                    <div class="col-md-12">
+                                                        <p class="card-text mt-3">{{item.texto}}</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
             <div
               class="tab-pane fade show active"
