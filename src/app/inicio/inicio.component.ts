@@ -25,6 +25,8 @@ export class InicioComponent implements OnInit {
   idUsuario = environment.idUsuario
   idTema: number
 
+
+
   constructor(
     private router: Router,
     private postagemService: PostagemService,
@@ -69,8 +71,6 @@ export class InicioComponent implements OnInit {
       this.usuario = resp
     })
   }
-
-
 
   publicar(){
     this.tema.idTema = this.idTema
