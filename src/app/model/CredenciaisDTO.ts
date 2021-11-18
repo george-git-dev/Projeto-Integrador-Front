@@ -6,4 +6,5 @@ export class CredenciaisDTO {
   public foto: string;
   public tipo: string;
   public token: string;
+  public descricao: string;
 }
