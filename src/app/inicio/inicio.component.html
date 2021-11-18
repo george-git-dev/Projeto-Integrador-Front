@@ -1,4 +1,4 @@
-<div class="container-fluid bg-inicio">
+<div class="container-fluid bg-inicio" id='top'>
 
     <div class="row">
         <div class="col-md-12 d-flex justify-content-start align-items-center wrapper" id='img-bg'>
@@ -15,33 +15,70 @@
 
 <div class="container-fluid pt-4 bg-postagens">
     <div class="row d-flex justify-content-center">
-        
-        <div class="col-md-2 col-sm-6 wrapper-200 mb-4" style='max-block-size: 200px;'>
+
+        <div class="col-md-2 col-sm-6 wrapper-200 mb-4 sticky" style='max-block-size: 200px;'>
             <div class="row d-flex justify-content-center">
                 <div class="col-10">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        
-                        <a class="nav-item nav-link active font-weight-bold br-50 d-flex justify-content-center" id="nav-todasPostagens-tab"
-                            data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens"
-                            aria-selected="true">Todas as Postagens</a>
 
-                        <a (click)='findByIdUsuario()' class="nav-item nav-link font-weight-bold br-50 d-flex justify-content-center"
+                        <a class="nav-item nav-link active font-weight-bold br-50 d-flex justify-content-center"
+                            id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
+                            aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
+
+                        <a (click)='findByIdUsuario()'
+                            class="nav-item nav-link font-weight-bold br-50 d-flex justify-content-center"
                             id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
                             aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
                             Postagens</a>
 
-                        <a class="nav-item nav-link font-weight-bold br-50 d-flex justify-content-center" id="nav-postagensPorTema-tab"
-                            data-toggle="tab" href="#postagensPorTema" role="tab" aria-controls="nav-postagensPorTema"
-                            aria-selected="false">Postagens
+                        <a class="nav-item nav-link font-weight-bold br-50 d-flex justify-content-center"
+                            id="nav-postagensPorTema-tab" data-toggle="tab" href="#postagensPorTema" role="tab"
+                            aria-controls="nav-postagensPorTema" aria-selected="false">Postagens
                             por tema</a>
 
                     </div>
                 </div>
             </div>
+
+            <!-- <div class="row d-flex justify-content-start fixed-bottom p-4">
+                <div class="col-md-3 wrapper p-3">
+                    <div class="col-md-12 d-flex justify-content-center">
+                      <h4 class="text-danger">Nos siga nas redes sociais:</h4>
+                    </div>
+            
+                    <div class="col-md-12 d-flex justify-content-center">
+                        
+                      <ul class="social-network m-0 p-0 text-danger">
+            
+                        <li>
+                          <a href="" target="blank" class="iconeLinkedin"><i class="fa fa-linkedin-square"></i>
+                          </a>
+                        </li>
+            
+                        <li>
+                          <a href="" target="blank" class="iconeInstagram"><i class="fa fa-instagram"></i>
+                          </a>
+                        </li>
+            
+                        <li>
+                          <a href="" target="blank" class="icone Github"><i class="fa fa-github-square"></i>
+                          </a>
+                        </li>
+            
+                      </ul>
+                    </div>
+            
+                    <div class="col-md-12 d-flex justify-content-center">
+                      <span class="text-danger">® 2021 Copyright: </span>
+                      <a class="text-danger" target="blank" href="">sinergy.com</a>
+                    </div>
+                  </div>
+            </div> -->
+
         </div>
 
 
-        <div class="col-md-8">
+        <div class="col-md-8 m-0">
             <div class="row d-flex justify-content-center">
                 <div class="col-10">
                     <div class="tab-content" id="v-pills-tabContent">
@@ -117,6 +154,21 @@
             </div>
         </div>
     </div>
+
+
+    <div class="container fixed-bottom col-md-1 mr-0">
+        <div class="row d-flex justify-content-end m-3">
+            <div class="wrapper">
+                <div class="col-md-12 d-flex justify-content-center">
+
+                    <a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 
