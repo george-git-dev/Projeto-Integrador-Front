@@ -110,7 +110,7 @@ E tudo isso será possivel através de postagens públicas dentro da nossa rede 
   </tr>
   <tr>
   <td align="center"><img style="width: 300px; border-radius: 50%"
-  src="https://avatars.githubusercontent.com/u/84461044?v=4"  alt=""/><br /><sub><b>Pablo Santos</b></sub></a><br />
+  src=https://i.imgur.com/4j9b8Aq.jpg  alt=""/><br /><sub><b>Pablo Santos</b></sub></a><br />
    <a href="https://www.linkedin.com/in/pablo-santos-10974b212/" alt="Linkedin">
   <br>
   <img src="https://img.shields.io/badge/-Linkedin-1C1C1C?style=for-the-badge&logo=Linkedin&logoColor=00FFFF&link"/>
