@@ -10,7 +10,8 @@
 
 
 <p align="center">
-<img align="center" src="https://i.imgur.com/uAjNK5U.png" style="width: 55%;" alt="Sinergy Logo">
+<img align="center" src=https://i.imgur.com/Qnc9Fge.png
+ style="width: 55%;" alt="Sinergy Logo">
 </p>
 
 
