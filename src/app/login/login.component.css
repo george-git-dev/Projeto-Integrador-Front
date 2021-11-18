@@ -9,6 +9,10 @@
   background-attachment: fixed;
 }
 
+.logo-entrar{
+  height: 500px;
+}
+
 .mask-white {
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.5);
