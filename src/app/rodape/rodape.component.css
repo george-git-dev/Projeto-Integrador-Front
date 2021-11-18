@@ -11,7 +11,7 @@ ul.social-network li {
 
 .fa {
   font-size: 35pt;
-  color: white;
+  color: rgb(131, 9, 9);
   padding: 10px;
   align-items: center;
 
@@ -19,9 +19,17 @@ ul.social-network li {
 .fa-instagram:hover {
   color: #c13584;
 }
+
 .fa-linkedin-square:hover {
   color: #0072b1;
 }
+
 .fa-github-square:hover {
   color: black;
+}
+
+.wrapper {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.226);
 }
