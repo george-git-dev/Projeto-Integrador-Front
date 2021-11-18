@@ -17,7 +17,8 @@
 <br>
 
 <h2>🎇 Sobre o Projeto Sinergy:</h2>
-<h4>------------------------------------------
+<h4>O nome do nosso projeto é Sinergy, ele é uma rede social que visa conectar ONGs que tem como objetivo as causas e metas da ODS 7 (energia limpa para todos) com pessoas que se interessam também por essa causa e queiram ajudar essas Instituições de alguma forma. A idéia é proporcionar uma plaforma onde ONGs e pessoas possam interagir e contribuir uma com a outra, através de publicações, enquetes de doações, posts, artigos, projetos, parcerias empresariais, abaixo assinado para petições coletivas e entre outros recursos.
+E tudo isso será possivel através de postagens públicas dentro da nossa rede social onde qualquer pessoa ou instituição terá acesso. Portanto, com isso pretendemos de alguma forma ajudar a contribuir para o cumprimento das metas da ODS 7.
 </h4>
 
 
