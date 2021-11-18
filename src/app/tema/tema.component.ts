@@ -7,46 +7,41 @@ import { TemaService } from '../service/tema.service';
 @Component({
   selector: 'app-tema',
   templateUrl: './tema.component.html',
-  styleUrls: ['./tema.component.css']
+  styleUrls: ['./tema.component.css'],
 })
 export class TemaComponent implements OnInit {
+  tema: Tema = new Tema();
+  listaTemas: Tema[];
+  nome = environment.nome;
 
-  tema: Tema = new Tema()
-  listaTemas: Tema[]
-  nome = environment.nome
+  constructor(private router: Router, private temaService: TemaService) {}
 
-  constructor(
-    private router: Router,
-    private temaService: TemaService
-  ) { }
-
-  ngOnInit(){
+  ngOnInit() {
     window.scroll(0, 0);
 
-    if(environment.token == ''){
+    if (environment.token == '') {
       this.router.navigate(['/login']);
     }
 
-    this.temaService.refreshToken()
+    this.temaService.refreshToken();
 
-    this.tema.criador = this.nome
-    
-    this.findAllTemas()
+    this.tema.criador = this.nome;
+
+    this.findAllTemas();
   }
 
-  findAllTemas(){
-    this.temaService.getAllTemas().subscribe((resp: Tema[]) =>{
-      this.listaTemas = resp
-    })
+  findAllTemas() {
+    this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
+      this.listaTemas = resp;
+    });
   }
 
-  cadastrar(){
+  cadastrar() {
     this.temaService.postTema(this.tema).subscribe((resp: Tema) => {
-      this.tema = resp
-      alert('Tema cadastrado com sucesso!')
-      this.findAllTemas()
-      this.tema = new Tema()
-    })
+      this.tema = resp;
+      alert('Tema cadastrado com sucesso!');
+      this.findAllTemas();
+      this.tema = new Tema();
+    });
   }
-
 }
