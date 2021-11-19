@@ -221,3 +221,9 @@ form .signup-link a:hover{
 .text-20{
   font-size: 20px;
 }
+
+.a-size {
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+}

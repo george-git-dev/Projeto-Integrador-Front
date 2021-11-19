@@ -51,7 +51,7 @@
                 <button class="dropdown-item" type="button" [routerLink]="['/usuario-edit', id]">Editar perfil</button>
                 <button class="dropdown-item" type="button" routerLink='/inicio'>Minhas postagens</button>
                 <div class="dropdown-divider mb-0"></div>
-                <button class="btn btn-outline-danger mt-3 px-5" (click)='sair()'>Sair</button>
+                <button class="btn btn-outline-danger mt-3 px-5 br-50" (click)='sair()'>Sair</button>
             </div>
         </div>
 
@@ -73,7 +73,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="titulo">Título</label>
-                    <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo"
+                    <input [(ngModel)]='postagem.titulo' type="text" class="form-control br-50" id="titulo"
                         placeholder="Digite o título">
                 </div>
 
@@ -96,8 +96,8 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-outline-success" (click)='publicar()'
+                <button type="button" class="btn btn-outline-primary br-50 px-3" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary br-50 px-4" (click)='publicar()'
                     data-dismiss="modal">Publicar</button>
             </div>
         </div>

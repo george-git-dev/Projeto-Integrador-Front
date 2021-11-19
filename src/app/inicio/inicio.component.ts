@@ -25,6 +25,9 @@ export class InicioComponent implements OnInit {
   idUsuario = environment.idUsuario
   idTema: number
 
+  foto = environment.foto
+  nome = environment.nome
+
 
 
   constructor(
