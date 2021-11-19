@@ -112,8 +112,8 @@
                                     <div class="row d-flex align-items-end mb-2">
                                         <div class="col-md-6">
                                             <label for="texto" class="ml-1">Escolha um tema:</label>
-                                            <select name="tema" id="tema" class="form-control"
-                                                [(ngModel)]='idTema' (change)='findByIdTema()'>
+                                            <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema'
+                                                (change)='findByIdTema()'>
                                                 <option *ngFor='let item of listaTema' value="{{item.idTema}}">
                                                     {{item.titulo}}
                                                 </option>
@@ -211,7 +211,27 @@
                                             </div>
 
                                             <div class="col-md-9">
+                                                <div class="row">
+                                                    <div
+                                                        class="col-md-12 font-weight-bold d-flex align-items-start justify-content-end">
+                                                        <div class="dropdown">
+                                                            <a class=" mr-3 a-size" href="#"
+                                                                role="button" id="dropdownMenuLink"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                ...
+                                                            </a>
+
+                                                            <div class="dropdown-menu"
+                                                                aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" [routerLink]="['/postagem-edit', item.idPostagem]">Editar</a>
+                                                                <a class="dropdown-item" [routerLink]="['/postagem-delete', item.idPostagem]">Apagar</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="row d-flex align-items-start text-20">
+
                                                     <div
                                                         class="col-md-12 d-flex justify-content-center align-items-center">
                                                         <h5>{{item.titulo}}</h5>
