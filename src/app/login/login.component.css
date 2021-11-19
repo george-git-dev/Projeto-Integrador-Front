@@ -1,6 +1,6 @@
-/*
+
 #img-bg{
-  background-image: url('https://i.makeagif.com/media/6-25-2018/4Vi8LU.gif');
+  background-image: url('https://imgur.com/7JktwAn.gif');
 
   min-height: 100vh;
   min-width: 100vw;
@@ -9,9 +9,9 @@
   background-size: cover;
   background-attachment: fixed;
 }
-*/
+
 .logo-entrar{
-  height: 500px;
+  height: 250px;
 }
 
 .mask-white {
@@ -57,7 +57,7 @@ hbody{
   /* margin-top: 7rem;  MODIFICAÇÃO PRA DESFAZER */
   background: #fff;
   border-radius: 15px;
-  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.274);
 }
 .wrapper .title{
   font-size: 35px;
@@ -165,4 +165,5 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
+
 
