@@ -1,0 +1,12 @@
+.fa.fa-plus-circle {
+    font-size: 20px;
+    color: black;
+}
+
+.br-50{
+    border-radius: 50px;
+}
+
+a {
+    cursor: pointer;
+}

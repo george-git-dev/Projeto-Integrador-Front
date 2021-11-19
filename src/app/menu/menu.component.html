@@ -1,0 +1,106 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-0 shadow rounded fixed-top">
+
+    <a class="mx-3" routerLink='/inicio'>
+        <img src="https://i.imgur.com/Qnc9Fge.png" alt="logo-sinergy" width="60px">
+    </a>
+
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2 br-50" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+        <button class="btn btn-outline-primary my-2 my-sm-0 br-50" type="submit">Pesquisar</button>
+    </form>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+
+        <ul class="navbar-nav mr-auto ml-3">
+
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/inicio">Página inicial</a>
+            </li>
+
+        </ul>
+
+        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" data-toggle="modal" data-target="#novaPostagem">Nova postagem</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="">Pesquisar postagem</a>
+        </div>
+
+
+        <div class="btn-group">
+
+            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <img class="img-fluid rounded-circle" src="{{foto}}" alt="foto-usuario" width="60px">
+            </button>
+
+            <div class="dropdown-menu dropdown-menu-right text-center">
+                <button class="dropdown-item" type="button"><img class="img-fluid rounded-circle" src="{{foto}}" alt="foto-usuario" width="50px"></button>
+                <p class="font-weight-bold">{{nome}}</p>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" type="button" [routerLink]="['/usuario-edit', id]">Editar perfil</button>
+                <button class="dropdown-item" type="button" routerLink='/inicio'>Minhas publicações</button>
+                <div class="dropdown-divider mb-0"></div>
+                <button class="btn btn-outline-danger mt-3 px-5 br-50" (click)='sair()'>Sair</button>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+<!--Modal -->
+<div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Nova Postagem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input [(ngModel)]='postagem.titulo' type="text" class="form-control br-50" id="titulo"
+                        placeholder="Digite o título">
+                </div>
+
+                <div class="form-group">
+                    <label for="texto">Texto</label>
+                    <textarea [(ngModel)]='postagem.texto' class="form-control" name="texto" id="texto"
+                        rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="texto">Escolha um tema ou <a routerLink='/tema' data-dismiss="modal">cadastre um
+                            novo</a>: </label>
+                    <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
+                        <option *ngFor='let item of listaTema' value="{{item.idTema}}">
+                            {{item.titulo}}
+                        </option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary br-50 px-3" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary br-50 px-4" (click)='publicar()'
+                    data-dismiss="modal">Publicar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal -->

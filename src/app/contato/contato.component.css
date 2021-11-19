@@ -1,0 +1,14 @@
+/*Estilos da pagina contato.html*/
+.center {
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
