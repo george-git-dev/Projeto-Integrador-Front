@@ -137,7 +137,7 @@
                             <div class=" text-center mb-4" *ngFor='let item of listaPostagens.reverse()'>
                                 <div class="wrapper">
                                     <div class="p-3">
-                                        <div class="row align-items-center">
+                                        <div class="row">
                                             <div class="col-md-3">
                                                 <img src="{{item.usuario.foto}}" alt="imagem-usuario"
                                                     class="rounded-circle" width="100px">
@@ -150,10 +150,9 @@
                                             </div>
                                             
                                             <div class="col-md-9">
-                                                <div class="row d-flex align-items-start">
-                                                    <div class="col-md-12 d-flex justify-content-center">
+                                                <div class="row d-flex align-items-start text-20">
+                                                    <div class="col-md-12 d-flex justify-content-center align-items-center">
                                                         <h5>{{item.titulo}}</h5>
-                                                       
                                                     </div>
                                                     
                                                 </div>
@@ -161,7 +160,7 @@
                                                     <p class="text-muted"><strong>Tema:</strong> {{item.tema.titulo}}</p>
                                                 </div>
 
-                                                <div class="row text-center px-4">
+                                                <div class="row text-center">
                                                     <div class="col-md-12">
                                                         <p class="card-text mt-3">{{item.texto}}</p>
 
