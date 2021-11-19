@@ -30,6 +30,9 @@ export class InicioComponent implements OnInit {
   tema: Tema = new Tema()
 
 
+  foto = environment.foto
+  nome = environment.nome
+
 
 
   constructor(
