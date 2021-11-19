@@ -15,15 +15,20 @@ import { TemaService } from '../service/tema.service';
 })
 export class InicioComponent implements OnInit {
 
-  postagem: Postagem = new Postagem()
   usuario: Usuario = new Usuario()
-  tema: Tema = new Tema()
+  idUsuario = environment.idUsuario
   
   listaPostagens: Postagem[]
-  listaTema: Tema[]
+  tituloPost: string
+  postagem: Postagem = new Postagem()
 
-  idUsuario = environment.idUsuario
+
+  
   idTema: number
+  listaTema: Tema[]
+  nomeTema: string
+  tema: Tema = new Tema()
+
 
   foto = environment.foto
   nome = environment.nome
@@ -90,5 +95,25 @@ export class InicioComponent implements OnInit {
     })
   }
 
+  findByTituloPostagem(){
+  if(this.tituloPost == ''){
+      this.getAllPostagens()
+    } else{
+      this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[])=>{
+        this.listaPostagens = resp
+      })
+    }
+  }
+
+
+  findByNomeTema(){
+    if(this.nomeTema == ''){
+        this.getAllTemas()
+      } else{
+        this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[])=>{
+          this.listaTema = resp
+        })
+      }
+    }
 
 }
