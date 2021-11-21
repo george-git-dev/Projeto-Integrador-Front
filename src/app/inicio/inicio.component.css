@@ -17,7 +17,7 @@ ul.social-network {
 
 ul.social-network li {
   display: inline; /* coloca os itens da lista um do lado do outro */
-  margin: 0; /*  */
+  margin: 0;
   padding: 5px; /* espaço entre os itens */
 }
 
@@ -42,6 +42,10 @@ ul.social-network li {
 
 .br-50{
   border-radius: 50px;
+}
+
+.br-25{
+  border-radius: 25px;
 }
 
 .bg-postagens{
