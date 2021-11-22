@@ -212,6 +212,13 @@ form .signup-link a:hover{
   top: 10%;
 }
 
+.a-size {
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+}
+
+
 @media (max-width:500px){
   #img-bg{
     background-image: none;
