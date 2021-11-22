@@ -17,7 +17,7 @@ ul.social-network {
 
 ul.social-network li {
   display: inline; /* coloca os itens da lista um do lado do outro */
-  margin: 0; /*  */
+  margin: 0;
   padding: 5px; /* espaço entre os itens */
 }
 
@@ -26,7 +26,6 @@ ul.social-network li {
   color: rgb(47, 47, 47);
   padding: 10px;
   align-items: center;
-
 }
 .fa-instagram:hover {
   color: #c13584;
@@ -40,15 +39,19 @@ ul.social-network li {
   color: black;
 }
 
-.br-50{
+.br-50 {
   border-radius: 50px;
 }
 
-.bg-postagens{
+.br-25 {
+  border-radius: 25px;
+}
+
+.bg-postagens {
   background-color: rgb(246, 246, 246);
 }
 
-.bg-inicio{
+.bg-inicio {
   background-color: rgb(197, 197, 197);
 }
 
@@ -92,14 +95,31 @@ p.comentar {
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.226);
 }
 
-.wrapper-200{
+.wrapper-200 {
   padding: 20px;
   background: #fff;
   border-radius: 15px;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.226);
 }
 
-.wrapper .title{
+.foto-usuario {
+  width: 100px;
+}
+
+.foto-usuario::before {
+  content: "";
+  height: 0;
+  float: left;
+  padding-bottom: calc(100% / (var(--aspect-ratio)));
+}
+
+.foto-usuario::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.wrapper .title {
   font-size: 35px;
   font-weight: 600;
   text-align: center;
@@ -109,16 +129,16 @@ p.comentar {
   border-radius: 15px 15px 0 0;
   background: linear-gradient(-135deg, #4158d0, #4158d0);
 }
-.wrapper form{
+.wrapper form {
   padding: 10px 30px 50px 30px;
 }
-.wrapper form .field{
+.wrapper form .field {
   height: 50px;
   width: 100%;
   margin-top: 20px;
   position: relative;
 }
-.wrapper form .field input{
+.wrapper form .field input {
   height: 100%;
   width: 100%;
   outline: none;
@@ -129,10 +149,10 @@ p.comentar {
   transition: all 0.3s ease;
 }
 .wrapper form .field input:focus,
-form .field input:valid{
+form .field input:valid {
   border-color: #4158d0;
 }
-.wrapper form .field label{
+.wrapper form .field label {
   position: absolute;
   top: 50%;
   left: 20px;
@@ -144,14 +164,14 @@ form .field input:valid{
   transition: all 0.3s ease;
 }
 form .field input:focus ~ label,
-form .field input:valid ~ label{
+form .field input:valid ~ label {
   top: 0%;
   font-size: 16px;
   color: #4158d0;
   background: #fff;
   transform: translateY(-50%);
 }
-form .content{
+form .content {
   display: flex;
   width: 100%;
   height: 50px;
@@ -159,25 +179,25 @@ form .content{
   align-items: center;
   justify-content: space-around;
 }
-form .content .checkbox{
+form .content .checkbox {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-form .content input{
+form .content input {
   width: 15px;
   height: 15px;
   background: red;
 }
-form .content label{
+form .content label {
   color: #262626;
   user-select: none;
   padding-left: 5px;
 }
-form .content .pass-link{
+form .content .pass-link {
   color: "";
 }
-form .field input[type="submit"]{
+form .field input[type="submit"] {
   color: #fff;
   border: none;
   padding-left: 0;
@@ -188,21 +208,21 @@ form .field input[type="submit"]{
   background: linear-gradient(-135deg, #4158d0, #4158d0);
   transition: all 0.3s ease;
 }
-form .field input[type="submit"]:active{
+form .field input[type="submit"]:active {
   transform: scale(0.95);
 }
-form .signup-link{
+form .signup-link {
   color: #262626;
   margin-top: 20px;
   text-align: center;
 }
 form .pass-link a,
-form .signup-link a{
+form .signup-link a {
   color: #4158d0;
   text-decoration: none;
 }
 form .pass-link a:hover,
-form .signup-link a:hover{
+form .signup-link a:hover {
   text-decoration: underline;
 }
 
@@ -212,13 +232,13 @@ form .signup-link a:hover{
   top: 10%;
 }
 
-@media (max-width:500px){
-  #img-bg{
+@media (max-width: 500px) {
+  #img-bg {
     background-image: none;
   }
 }
 
-.text-20{
+.text-20 {
   font-size: 20px;
 }
 

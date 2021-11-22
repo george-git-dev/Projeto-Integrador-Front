@@ -20,33 +20,20 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-10">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="
-                  nav-item nav-link
-                  active
-                  font-weight-bold
-                  br-50
-                  d-flex
-                  justify-content-center
-                " id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
+
+                        <a class="nav-item nav-link active font-weight-bold br-50 d-flex justify-content-center"
+                            id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
                             aria-controls="nav-todasPostagens" aria-selected="true">Todas as Publicações</a>
 
-                        <a (click)="findByIdUsuario()" class="
-                  nav-item nav-link
-                  font-weight-bold
-                  br-50
-                  d-flex
-                  justify-content-center
-                " id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
+                        <a (click)="findByIdUsuario()"
+                            class=" nav-item nav-link font-weight-bold br-50 d-flex justify-content-center"
+                            id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
                             aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Publicações</a>
 
-                        <a class="
-                  nav-item nav-link
-                  font-weight-bold
-                  br-50
-                  d-flex
-                  justify-content-center
-                " id="nav-postagensPorTema-tab" data-toggle="tab" href="#postagensPorTema" role="tab"
+                        <a class=" nav-item nav-link font-weight-bold br-50 d-flex justify-content-center"
+                            id="nav-postagensPorTema-tab" data-toggle="tab" href="#postagensPorTema" role="tab"
                             aria-controls="nav-postagensPorTema" aria-selected="false">Publicações por Tema</a>
+
                     </div>
                 </div>
             </div>
@@ -56,52 +43,101 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-10">
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="mb-4">
-                            <div class="wrapper">
-                                <div class="p-4 px-5">
-                                    <div>
-                                        <h4 class="card-title m-0 text text-center">
-                                            Crie uma publicação
-                                        </h4>
-                                    </div>
-                                    <div>
-                                        <label for="titulo">Título</label>
-                                        <input [(ngModel)]="postagem.titulo" type="text" id="titulo"
-                                            class="form-control br-50" placeholder="Digite o título" />
-                                    </div>
 
-                                    <div class="my-3">
-                                        <label for="texto">Texto</label>
-                                        <textarea [(ngModel)]="postagem.texto" class="form-control" name="texto"
-                                            id="texto" rows="3"></textarea>
-                                    </div>
+                        <div class="container p-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-center m-0 bg-white br-25">
 
-                                    <div class="mb-3">
-                                        <label for="titulo">Foto</label>
-                                        <input [(ngModel)]="postagem.foto" type="text" id="foto"
-                                            class="form-control br-50" placeholder="Insira o link da foto" />
-                                    </div>
+                                        <button onclick="clicado()" class="btn btn-outline-secondary btn-block br-25"
+                                            id="bb" type="button" data-toggle="collapse" data-target="#criarPostagem"
+                                            aria-expanded="false" aria-controls="criarPostagem"
+                                            style="box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.226)">
+                                            <div>
+                                                <h4 class="card-title m-0 text text-center">
+                                                    Crie uma publicação
+                                                </h4>
+                                            </div>
+                                        </button>
+                                    </p>
 
-                                    <div class="row d-flex align-items-end mb-2">
-                                        <div class="col-md-6">
-                                            <label for="texto" class="ml-1">Escolha um tema:</label>
-                                            <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema"
-                                                (change)="findByIdTema()">
-                                                <option *ngFor="let item of listaTema" value="{{ item.idTema }}">
-                                                    {{ item.titulo }}
-                                                </option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 d-flex justify-content-center">
-                                            <button type="button" class="btn btn-outline-primary btn-block br-50"
-                                                (click)="publicar()">
-                                                Publicar
-                                            </button>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="collapse" id="criarPostagem">
+                                        <div class="wrapper">
+                                            <div class="p-4 px-5">
+
+                                                <div>
+                                                    <label for="titulo">Título</label>
+                                                    <input [(ngModel)]="postagem.titulo" type="text" id="titulo"
+                                                        class="form-control br-50" placeholder="Digite o título" />
+                                                </div>
+
+                                                <div class="my-3">
+                                                    <label for="texto">Texto</label>
+                                                    <textarea [(ngModel)]="postagem.texto" class="form-control br-25"
+                                                        name="texto" id="texto" rows="3"></textarea>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="titulo">Foto</label>
+                                                    <input [(ngModel)]="postagem.foto" type="text" id="foto"
+                                                        class="form-control br-50"
+                                                        placeholder="Insira o link da foto" />
+                                                </div>
+
+                                                <div class="row d-flex align-items-end mb-2">
+                                                    <div class="col-md-6">
+                                                        <label for="texto" class="ml-1">Escolha um tema:</label>
+                                                        <select name="tema" id="tema" class="form-control"
+                                                            [(ngModel)]="idTema" (change)="findByIdTema()">
+                                                            <option *ngFor="let item of listaTema"
+                                                                value="{{ item.idTema }}">
+                                                                {{ item.titulo }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6 d-flex justify-content-center">
+                                                        <button type="button"
+                                                            class="btn btn-outline-primary btn-block br-50"
+                                                            (click)="publicar()">
+                                                            Publicar
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
+
+                        <!-- <script> // Funçao para inserir e retirar o arredondamento do botao ao clicar
+
+                            let clicou = false
+                            let bordaBotao = window.document.getElementById('bb')
+                            let botao = document.querySelector(".btn")
+
+                            botao.setFocusPainted(false);
+                            botao.setBorderPainted(false);
+
+                            function clicado(button) {
+                                if (clicou == false) {
+                                    bordaBotao.style.borderBottomLeftRadius = '0px'
+                                    bordaBotao.style.borderBottomRightRadius = '0px'
+                                    clicou = true
+                                } else {
+                                    bordaBotao.style.borderBottomLeftRadius = '4px'
+                                    bordaBotao.style.borderBottomRightRadius = '4px'
+                                    clicou = false
+                                }
+                            }
+                        </script> -->
+
 
                         <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
                             aria-labelledby="nav-todasPostagens-tab">
@@ -124,28 +160,33 @@
                                     <div class="p-3">
                                         <div class="row">
                                             <div class="col-md-3 border-right">
-                                                <img src="{{ item.usuario.foto }}" alt="imagem-usuario"
-                                                    class="rounded-circle mb-2" width="100px" />
-                                                <p class="">
-                                                    {{ item.usuario.nome }}
-                                                </p>
-                                                <p class="card-text">
-                                                    <small class="text-muted">{{ item.date | date: "dd/MM/yyyy" }} as
-                                                        {{ item.date | date: "HH:mm" }}</small>
-                                                </p>
+                                                <div class="col-md-12">
+                                                    <img src="{{ item.usuario.foto }}" alt="imagem-usuario"
+                                                        class="rounded-circle mb-2 foto-usuario"/>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <p class="">
+                                                        {{ item.usuario.nome }}
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <p class="card-text">
+                                                        <small class="text-muted">{{ item.date | date: "dd/MM/yyyy" }} as
+                                                            {{ item.date | date: "HH:mm" }}</small>
+                                                    </p>
+                                                </div>
+                                                
+                                                
                                             </div>
 
                                             <div class="col-md-9">
+
                                                 <div class="row d-flex align-items-start text-20">
-                                                    <div class="
-                                col-md-12
-                                d-flex
-                                justify-content-center
-                                align-items-center
-                              ">
+                                                    <div class="col-md-12 d-flex justify-content-center align-items-center">
                                                         <h5>{{ item.titulo }}</h5>
                                                     </div>
                                                 </div>
+
                                                 <div class="row d-flex justify-content-center">
                                                     <p class="text-muted">
                                                         <strong>Tema:</strong> {{ item.tema.titulo }}
@@ -157,11 +198,13 @@
                                                         <p class="card-text mt-3">{{ item.texto }}</p>
                                                     </div>
                                                 </div>
+
                                                 <div class="row mt-3">
                                                     <div class="col-md-12">
                                                         <img src="{{ item.foto }}" alt="" width="90%" />
                                                     </div>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -169,7 +212,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="minhasPostagens" role="tabpanel"
+                        <div class="tab-pane fade mt-5" id="minhasPostagens" role="tabpanel"
                             aria-labelledby="nav-minhasPostagens-tab">
                             <div class="text-center mb-4"
                                 *ngFor="let item of usuario.postagens | orderBy : key : reverse">
@@ -303,7 +346,7 @@
 
                                                 <div class="row mt-3">
                                                     <div class="col-md-12">
-                                                        <img src="{{ item.foto }}" alt="" width="90%" />
+                                                        <img src="{{ item.foto }}" alt="" width="80%" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -322,7 +365,7 @@
         <div class="row d-flex justify-content-end m-3">
             <div class="wrapper">
                 <div class="col-md-12 d-flex justify-content-center">
-                    <a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i> </a>
+                    <a href="#top"><i class="fa fa-arrow-up" aria-hidden="false"></i> </a>
                 </div>
             </div>
         </div>
