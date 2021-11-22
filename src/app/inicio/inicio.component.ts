@@ -26,6 +26,9 @@ export class InicioComponent implements OnInit {
   nomeTema: string;
   tema: Tema = new Tema();
 
+  key = 'data'
+  reverse = true
+
   foto = environment.foto;
   nome = environment.nome;
 

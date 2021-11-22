@@ -1,7 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
-// import { InicioComponent } from '../inicio/inicio.component';
+import { InicioComponent } from '../inicio/inicio.component';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
