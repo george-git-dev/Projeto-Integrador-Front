@@ -41,11 +41,11 @@
 
             <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                <img class="img-fluid rounded-circle" src="{{foto}}" alt="foto-usuario" width="60px">
+                <img class="img-fluid rounded-circle foto-usuario" src="{{foto}}" alt="foto-usuario" width="60px">
             </button>
 
             <div class="dropdown-menu dropdown-menu-right text-center">
-                <button class="dropdown-item" type="button"><img class="img-fluid rounded-circle" src="{{foto}}" alt="foto-usuario" width="50px"></button>
+                <button class="dropdown-item" type="button"><img class="img-fluid rounded-circle foto-usuario" src="{{foto}}" alt="foto-usuario" width="50px"></button>
                 <p class="font-weight-bold">{{nome}}</p>
                 <div class="dropdown-divider"></div>
                 <button class="dropdown-item" type="button" [routerLink]="['/usuario-edit', id]">Editar perfil</button>
