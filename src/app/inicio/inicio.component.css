@@ -103,20 +103,16 @@ p.comentar {
 }
 
 .foto-usuario {
-  width: 100px;
-}
+  width: 8vw;
+  height: 8vw;
 
-.foto-usuario::before {
-  content: "";
-  height: 0;
-  float: left;
-  padding-bottom: calc(100% / (var(--aspect-ratio)));
-}
+  max-width: 110px;
+  max-height: 110px;
 
-.foto-usuario::after {
-  content: "";
-  display: block;
-  clear: both;
+  min-width: 70px;
+  min-height: 70px;
+
+  object-fit: cover;
 }
 
 .wrapper .title {
