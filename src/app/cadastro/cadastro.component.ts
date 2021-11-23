@@ -32,6 +32,7 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
+    this.usuario.foto = 'https://cdn-icons-png.flaticon.com/512/74/74472.png'
     if (this.confirmarSenha.length < 8) {
       alert('A senha deve ter no minimo 8 caracteres!');
     } else {
