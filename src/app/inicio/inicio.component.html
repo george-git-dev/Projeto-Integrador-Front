@@ -1,14 +1,14 @@
-<div class="container-fluid bg-inicio" id="top">
-    <div class="row">
-        <div class="col-md-12 d-flex justify-content-start align-items-center wrapper" id="img-bg">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-10">
-                    <h1 class="fs-54">Seja bem vindo(a)!</h1>
-                    <h5 class="fs-18">
-                        Local para expressar suas ideias ou encontrar a ONG certa para suas
-                        ideias!
-                    </h5>
-                </div>
+<!-- BEM-VINDO/IMAGEM -->
+
+<div class="row">
+    <div class="col-md-12 d-flex justify-content-start align-items-center" id="img-bg">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-10">
+                <h1 class="fs-54">Seja bem vindo(a)!</h1>
+                <h5 class="fs-18">
+                    Local para expressar suas ideias ou encontrar a ONG certa para suas
+                    ideias!
+                </h5>
             </div>
         </div>
     </div>
@@ -49,8 +49,10 @@
                                 <div class="col-md-12">
                                     <p class="text-center m-0 bg-white br-25">
 
-                                        <button onclick="clicado()" class="btn btn-outline-secondary btn-block br-25"
-                                            id="bb" type="button" data-toggle="collapse" data-target="#criarPostagem"
+                                        <button
+                                            [ngStyle]="{ 'border-bottom-right-radius': border, 'border-bottom-left-radius': border }"
+                                            (click)="clicado()" class="btn btn-primary btn-block br-25" id="bb"
+                                            type="button" data-toggle="collapse" data-target="#criarPostagem"
                                             aria-expanded="false" aria-controls="criarPostagem"
                                             style="box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.226)">
                                             <div>
@@ -67,7 +69,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="collapse" id="criarPostagem">
-                                        <div class="wrapper">
+
+                                        <div class="wrapper bt-0">
                                             <div class="p-4 px-5">
 
                                                 <div>
@@ -113,35 +116,11 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
-                        <!-- <script> // Funçao para inserir e retirar o arredondamento do botao ao clicar
-
-                          let clicou = false
-                          let bordaBotao = window.document.getElementById('bb')
-                          let botao = document.querySelector(".btn")
-
-                          botao.setFocusPainted(false);
-                          botao.setBorderPainted(false);
-
-                          function clicado(button) {
-                              if (clicou == false) {
-                                  bordaBotao.style.borderBottomLeftRadius = '0px'
-                                  bordaBotao.style.borderBottomRightRadius = '0px'
-                                  clicou = true
-                              } else {
-                                  bordaBotao.style.borderBottomLeftRadius = '4px'
-                                  bordaBotao.style.borderBottomRightRadius = '4px'
-                                  clicou = false
-                              }
-                          }
-                      </script> -->
 
 
                         <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
                             aria-labelledby="nav-todasPostagens-tab">
-                            <!-- PESQUISA POR ID -->
 
                             <div class="row d-flex justify-content-center mt-5 mb-4">
                                 <div class="col-md-4">
@@ -152,6 +131,9 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <!-- PESQUISA POR TÍTULO -->
 
 
                             <div class="text-center mb-4" *ngFor="let item of listaPostagens | orderBy : key : reverse">
@@ -214,6 +196,9 @@
                             </div>
                         </div>
 
+
+                        <!-- MINHAS POSTAGENS -->
+
                         <div class="tab-pane fade mt-5" id="minhasPostagens" role="tabpanel"
                             aria-labelledby="nav-minhasPostagens-tab">
                             <div class="text-center mb-4"
@@ -229,7 +214,8 @@
                                                     {{ nome }}
                                                 </p>
                                                 <p class="card-text">
-                                                    <small class="text-muted">{{ item.date | date: "dd/MM/yyyy" }} as
+                                                    <small class="text-muted">{{ item.date | date: "dd/MM/yyyy" }}
+                                                        as
                                                         {{ item.date | date: "HH:mm" }}</small>
                                                 </p>
                                             </div>
@@ -297,6 +283,10 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- POR TEMA -->
+
                         <div class="tab-pane fade" id="postagensPorTema" role="tabpanel"
                             aria-labelledby="nav-postagensPorTema-tab">
                             <!-- PESQUISA POR TEMA -->
@@ -309,6 +299,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <!-- PESQUISA POR TEMA -->
 
                             <div *ngFor="let tema of listaTema">
@@ -323,19 +314,16 @@
                                                     {{ item.usuario.nome }}
                                                 </p>
                                                 <p class="card-text">
-                                                    <small class="text-muted">{{ item.date | date: "dd/MM/yyyy" }} as
+                                                    <small class="text-muted">{{ item.date | date:
+                                                        "dd/MM/yyyy" }} as
                                                         {{ item.date | date: "HH:mm" }}</small>
                                                 </p>
                                             </div>
 
                                             <div class="col-md-9">
                                                 <div class="row d-flex align-items-start text-20">
-                                                    <div class="
-                              col-md-12
-                              d-flex
-                              justify-content-center
-                              align-items-center
-                            ">
+                                                    <div
+                                                        class="col-md-12 d-flex justify-content-center align-items-center">
                                                         <h5>{{ item.titulo }}</h5>
                                                     </div>
                                                 </div>
@@ -356,20 +344,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- /POSTAGENS POR TEMA -->
+                            <!-- /POR TEMA -->
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container fixed-bottom col-md-1 mr-0">
-        <div class="row d-flex justify-content-end m-3">
-            <div class="wrapper">
-                <div class="col-md-12 d-flex justify-content-center">
-                    <a href="#top"><i class="fa fa-arrow-up" aria-hidden="false"></i> </a>
+        <!-- SETA UP -->
+        <div class="container fixed-bottom col-md-1 mr-0">
+            <div class="row d-flex justify-content-end m-3">
+                <div class="wrapper">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <a href="#top"><i class="fa fa-arrow-up" aria-hidden="false"></i> </a>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- /SETA UP -->
+
     </div>
-</div>
