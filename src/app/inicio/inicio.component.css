@@ -97,6 +97,7 @@ p.comentar {
 
 .wrapper-200 {
   padding: 20px;
+
   background: #fff;
   border-radius: 15px;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.226);
@@ -243,3 +244,35 @@ form .signup-link a:hover {
   text-decoration: none;
   color: black;
 }
+
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 400px;
+}
+
+
+.teste1 {
+
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+
+  min-width: 18%;
+
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.226);
+  float: inline-end;
+}
+
+
+
+.teste2 {
+  min-width: 10%;
+
+}
+
+
