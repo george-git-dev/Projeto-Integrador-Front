@@ -243,3 +243,13 @@ form .signup-link a:hover {
   text-decoration: none;
   color: black;
 }
+
+.b {
+  margin-bottom: 0px;
+}
+
+.bt-0 {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  
+}
