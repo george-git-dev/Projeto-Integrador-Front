@@ -29,6 +29,8 @@ export class MenuComponent implements OnInit {
   idUsuario = environment.idUsuario
   idTema: number
 
+  inicio: InicioComponent
+
   constructor(
     private router: Router,
     private postagemService: PostagemService,
@@ -47,7 +49,7 @@ export class MenuComponent implements OnInit {
     this.postagemService.refreshToken()
     this.authService.refreshToken()
     this.temaService.refreshToken()
-    // this.getAllPostagensInicio()
+    this.getAllPostagensInicio()
     this.getAllTemas()
   }
 
@@ -63,9 +65,11 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  // getAllPostagensInicio() {
-  //   return this.inicioComponent.getAllPostagens()
-  // }
+  getAllPostagensInicio() {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
+      this.listaPostagens = resp;
+    });
+  }
 
   findByIdUsuario() {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
@@ -84,7 +88,7 @@ export class MenuComponent implements OnInit {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
-      // this.getAllPostagensInicio()
+      this.inicio.getAllPostagens// this.getAllPostagensInicio()
     })
   }
 
