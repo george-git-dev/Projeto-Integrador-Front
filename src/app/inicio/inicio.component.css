@@ -1,3 +1,11 @@
+/* NIGHT MODE */
+html{
+  --background: white;
+  --text: black;
+}
+
+/*   /NIGHT MODE   */
+
 #img-bg {
   background-image: url("https://i.imgur.com/Qnc9Fge.png");
 
