@@ -61,4 +61,14 @@ export class AuthService {
 
     return ok;
   }
+
+  viewRodape() {
+    let ok: boolean = false;
+
+    if (environment.token != '' && environment.rodapeOff == false) {
+      ok = true;
+    }
+
+    return ok;
+  }
 }

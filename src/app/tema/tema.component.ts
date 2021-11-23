@@ -17,6 +17,7 @@ export class TemaComponent implements OnInit {
   constructor(private router: Router, private temaService: TemaService) {}
 
   ngOnInit() {
+    environment.rodapeOff = true
     window.scroll(0, 0);
 
     if (environment.token == '') {
@@ -38,11 +39,13 @@ export class TemaComponent implements OnInit {
   }
 
   cadastrar() {
+    this.tema.criador = this.nome
     this.temaService.postTema(this.tema).subscribe((resp: Tema) => {
       this.tema = resp;
       alert('Tema cadastrado com sucesso!');
       this.findAllTemas();
       this.tema = new Tema();
+      
     });
   }
 }

@@ -96,4 +96,9 @@ export class MenuComponent implements OnInit {
     environment.idUsuario = 0
   }
 
+  ocultarRodape() {
+    return environment.rodapeOff = true
+    
+  }
+
 }
