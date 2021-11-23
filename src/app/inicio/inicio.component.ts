@@ -26,6 +26,9 @@ export class InicioComponent implements OnInit {
   nomeTema: string;
   tema: Tema = new Tema();
 
+  clicou: boolean
+  border: string
+
   key = 'data'
   reverse = true
 
@@ -40,6 +43,7 @@ export class InicioComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.clicou = true
     window.scroll(0, 0);
 
     if (environment.token == '') {
@@ -117,6 +121,17 @@ export class InicioComponent implements OnInit {
         .subscribe((resp: Tema[]) => {
           this.listaTema = resp;
         });
+    }
+  }
+
+  clicado() {
+    
+    if(this.clicou == true) {
+      this.border = '0px'
+      this.clicou = false
+    } else {
+      this.border = '25px'
+      this.clicou = true
     }
   }
   
