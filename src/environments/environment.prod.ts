@@ -6,4 +6,5 @@ export const environment = {
   foto: '',
   tipo: '',
   idUsuario: 0,
+  rodapeOff: false,
 };
