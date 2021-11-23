@@ -23,6 +23,7 @@ export class TemaComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
+
     this.temaService.refreshToken();
 
     this.tema.criador = this.nome;
