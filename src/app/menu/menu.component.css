@@ -3,12 +3,21 @@
     color: black;
 }
 
+.fa.fa-lock {
+    font-size: 20px;
+    color: black;
+}
+.fa:hover {
+    color: rgb(83, 83, 83);
+}
+
 .br-50{
     border-radius: 50px;
 }
 
 a {
     cursor: pointer;
+    text-decoration: none;
 }
 
 .foto-usuario {
