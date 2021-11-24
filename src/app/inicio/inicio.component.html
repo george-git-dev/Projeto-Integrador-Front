@@ -18,21 +18,21 @@
 
 <div class="container-fluid pt-4 bg-postagens">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-2 col-sm-6 wrapper-200 mb-4 sticky" style="max-block-size: 200px">
-            <div class="row d-flex justify-content-center">
-                <div class="col-10">
+        <div class="col-md-2 col-sm-6 sticky"> <!-- style="max-block-size: 200px" -->
+            <div class="wrapper row d-flex justify-content-center p-3">
+                <div class="col-md-12 p-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-                        <a class="nav-item nav-link active font-weight-bold br-50 d-flex justify-content-center"
+                        <a class="nav-item nav-link active font-weight-bold br-25 d-flex justify-content-center text-center"
                             id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
                             aria-controls="nav-todasPostagens" aria-selected="true">Todas as Publicações</a>
 
                         <a (click)="findByIdUsuario()"
-                            class=" nav-item nav-link font-weight-bold br-50 d-flex justify-content-center"
+                            class=" nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
                             id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
                             aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Publicações</a>
 
-                        <a class=" nav-item nav-link font-weight-bold br-50 d-flex justify-content-center"
+                        <a class=" nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
                             id="nav-postagensPorTema-tab" data-toggle="tab" href="#postagensPorTema" role="tab"
                             aria-controls="nav-postagensPorTema" aria-selected="false">Publicações por Tema</a>
 
@@ -168,7 +168,7 @@
                                                 <div class="row d-flex align-items-start text-20">
                                                     <div
                                                         class="col-md-12 d-flex justify-content-center align-items-center">
-                                                        <h5>{{ item.titulo }}</h5>
+                                                        <h5 class="m-2">{{ item.titulo }}</h5>
                                                     </div>
                                                 </div>
 
@@ -223,12 +223,12 @@
 
                                             <div class="col-md-9">
                                                 <div class="row d-flex justify-content-end">
-                                                    <div class="col-md-10 d-flex justify-content-center">
-                                                        <h5>{{ item.titulo }}</h5>
+                                                    <div class="col-md-10 d-flex justify-content-center align-items-center">
+                                                        <h5 class="m-0">{{ item.titulo }}</h5>
                                                     </div>
 
-                                                    <div class="col-md-1 dropdown d-flex justify-content-start font-weight-bold p-0 m-0">
-                                                        <a class="a-size" href="#" role="button"
+                                                    <div class="col-md-1 dropdown d-flex justify-content-end font-weight-bold p-0 m-0">
+                                                        <a class="a-size mr-4" href="#" role="button"
                                                             id="dropdownMenuLink" data-toggle="dropdown"
                                                             aria-haspopup="true" aria-expanded="false">
                                                             ...
@@ -307,7 +307,7 @@
                                                 <div class="row d-flex align-items-start text-20">
                                                     <div
                                                         class="col-md-12 d-flex justify-content-center align-items-center">
-                                                        <h5>{{ item.titulo }}</h5>
+                                                        <h5 class="m-2">{{ item.titulo }}</h5>
                                                     </div>
                                                 </div>
 
