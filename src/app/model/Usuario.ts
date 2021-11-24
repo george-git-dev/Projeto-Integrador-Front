@@ -8,5 +8,6 @@ export class Usuario {
   public foto: string;
   public tipo: string;
   public descricao: string;
+  public userAtivo: boolean;
   public postagens: Postagem[];
 }

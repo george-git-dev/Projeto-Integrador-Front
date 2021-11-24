@@ -7,4 +7,5 @@ export class CredenciaisDTO {
   public tipo: string;
   public token: string;
   public descricao: string;
+  public userAtivo: boolean;
 }
