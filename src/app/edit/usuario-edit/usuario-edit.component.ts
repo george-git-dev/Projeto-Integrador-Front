@@ -24,7 +24,8 @@ export class UsuarioEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    window.scroll(0, 0);
+    window.scroll(0,0)
+    environment.rodapeOff = true;
     if (environment.token == '') {
       this.router.navigate(['/login']);
     }

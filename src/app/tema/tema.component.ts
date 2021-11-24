@@ -22,11 +22,13 @@ export class TemaComponent implements OnInit {
     ) {}
 
   ngOnInit() {
+    environment.rodapeOff = true
     window.scroll(0, 0);
 
     if (environment.token == '') {
       this.router.navigate(['/login']);
     }
+
 
     this.temaService.refreshToken();
 
@@ -42,11 +44,13 @@ export class TemaComponent implements OnInit {
   }
 
   cadastrar() {
+    this.tema.criador = this.nome
     this.temaService.postTema(this.tema).subscribe((resp: Tema) => {
       this.tema = resp;
       this.alertas.showAlertSuccess('Tema cadastrado com sucesso!');
       this.findAllTemas();
       this.tema = new Tema();
+      
     });
   }
 }

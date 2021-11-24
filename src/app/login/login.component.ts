@@ -34,20 +34,7 @@ export class EntrarComponent implements OnInit {
         environment.nome = this.usuarioLogin.nome;
         environment.email = this.usuarioLogin.email;
         environment.tipo = this.usuarioLogin.tipo;
-
-        if (this.usuarioLogin.foto == null) {
-          environment.foto =
-            'https://cdn-icons-png.flaticon.com/512/74/74472.png';
-        } else {
-          environment.foto = this.usuarioLogin.foto;
-        }
-
-        // console.log(environment.token)
-        // console.log(environment.id)
-        // console.log(environment.nome)
-        // console.log(environment.email)
-        // console.log(environment.tipo)
-        // console.log(environment.foto)
+        environment.foto = this.usuarioLogin.foto;
 
         this.router.navigate(['/inicio']);
       },
