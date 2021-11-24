@@ -15,17 +15,20 @@ ul.social-network li {
   padding: 10px;
   align-items: center;
 
+  width: 60px;
+  height: 60px;
 }
+
 .fa-instagram:hover {
   color: #c13584;
 }
 
-.fa-linkedin-square:hover {
+.fa-linkedin:hover {
   color: #0072b1;
 }
 
-.fa-github-square:hover {
-  color: black;
+.fa-github:hover {
+  color: rgb(100, 100, 100);
 }
 
 .wrapper {
