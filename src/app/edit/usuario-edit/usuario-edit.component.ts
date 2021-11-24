@@ -39,9 +39,7 @@ export class UsuarioEditComponent implements OnInit {
     this.confirmarSenha = event.target.value;
   }
 
-  tipoUser(event: any) {
-    this.tipoUsuario = event.target.value;
-  }
+  
 
   findByIdUsuario(id: number) {
     this.authService.getByIdUsuario(id).subscribe((resp: Usuario) => {
