@@ -97,7 +97,7 @@
                                                 <div class="row d-flex align-items-end mb-2">
                                                     <div class="col-md-6">
                                                         <label for="texto" class="ml-1">Escolha um tema:</label>
-                                                        <select name="tema" id="tema" class="form-control"
+                                                        <select name="tema" id="tema" class="form-control br-25"
                                                             [(ngModel)]="idTema" (change)="findByIdTema()">
                                                             <option *ngFor="let item of listaTema"
                                                                 value="{{ item.idTema }}">
