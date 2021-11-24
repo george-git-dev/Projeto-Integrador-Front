@@ -9,6 +9,7 @@ import { Postagem } from './../../model/Postagem';
 
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
+import { AlertasService } from 'src/app/service/alertas.service';
 
 @Component({
   selector: 'app-postagem-edit',
@@ -28,7 +29,8 @@ export class PostagemEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private postagemService: PostagemService,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private alertas: AlertasService
 
   ) { }
 
@@ -72,7 +74,7 @@ export class PostagemEditComponent implements OnInit {
     this.postagem.tema = this.tema
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem atualizada!')
+      this.alertas.showAlertSuccess('Postagem atualizada!')
       this.router.navigate(['/inicio'])
     })
 
