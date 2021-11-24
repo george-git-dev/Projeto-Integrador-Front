@@ -18,6 +18,7 @@
 a {
     cursor: pointer;
     text-decoration: none;
+    
 }
 
 .foto-usuario {
@@ -26,4 +27,5 @@ a {
     height: 50px;
   
     object-fit: cover;
-  }
+}
+

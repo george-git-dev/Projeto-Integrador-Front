@@ -33,8 +33,9 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2">Admin</span><i class="fa fa-lock" aria-hidden="true"></i>
             </a>
-            <div class="dropdown-menu" aria-labelledby="admin">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="admin">
                 <a class="dropdown-item" (click)='ocultarRodape()' routerLink='/tema'>Temas</a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Apagar usuário</a>
             </div>
         </div>
@@ -55,14 +56,14 @@
 
         <div class="btn-group">
 
-            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            <a type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <img class="img-fluid rounded-circle foto-usuario" src="{{foto}}" alt="foto-usuario" width="60px">
-            </button>
+        </a>
 
             <div class="dropdown-menu dropdown-menu-right text-center">
-                <button class="dropdown-item" type="button"><img class="img-fluid rounded-circle foto-usuario"
-                        src="{{foto}}" alt="foto-usuario" width="50px"></button>
+                <a type="button"><img class="img-fluid rounded-circle foto-usuario"
+                        src="{{foto}}" alt="foto-usuario" width="50px"></a>
                 <p class="font-weight-bold">{{nome}}</p>
                 <div class="dropdown-divider"></div>
                 <button class="dropdown-item" type="button" [routerLink]="['/usuario-edit', id]">Editar perfil</button>
