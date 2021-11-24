@@ -46,6 +46,7 @@ export class InicioComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(environment.tipo)
     environment.rodapeOff = false
     this.clicou = true
     window.scroll(0, 0);
