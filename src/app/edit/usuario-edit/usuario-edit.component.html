@@ -2,8 +2,8 @@
   <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col-md-8">
       <div class="container p-0">
-        <div class="row">
-          <div class="col-md-12" id="editUsuario">
+        <div class="row" id="editUsuario">
+          <div class="col-md-12">
             <p class="text-center m-0 br-25">
 
               <a [ngStyle]="{ 'border-bottom-right-radius': border, 'border-bottom-left-radius': border }"
@@ -127,18 +127,18 @@
 
 <div class="container-fluid pt-4 bg-postagens">
   <div class="row d-flex justify-content-center">
-    <div class="col-md-2 col-sm-6 sticky">
+    <div class="col-md-2 col-sm-6 sticky" style="max-block-size: 200px">
       <!-- style="max-block-size: 200px" -->
       <div class="wrapper row d-flex justify-content-center p-3">
         <div class="col-md-12 p-0">
           <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-            <a class=" nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
-              id="nav-editarUsuario-tab" data-toggle="tab" href="#editarUsuario" role="tab"
+            <a class="nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
+              id="nav-editarUsuario-tab" data-toggle="tab" href="#editUsuario" role="tab"
               aria-controls="nav-editarUsuario" aria-selected="false">Editar Usuario</a>
 
             <a (click)="postagemByIdUsuario()"
-              class=" nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
+              class="nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
               id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
               aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Publicações</a>
 
