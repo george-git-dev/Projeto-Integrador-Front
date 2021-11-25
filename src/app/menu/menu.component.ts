@@ -97,7 +97,6 @@ export class MenuComponent implements OnInit {
 
   mostraAdmin() {
 
-    console.log(environment.tipo)
     let admin: boolean = false
 
     if(environment.tipo == 'adm') {

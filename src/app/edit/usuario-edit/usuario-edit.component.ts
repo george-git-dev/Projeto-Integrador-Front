@@ -18,7 +18,6 @@ export class UsuarioEditComponent implements OnInit {
   usuario: Usuario = new Usuario();
   idUsuario: number;
   confirmarSenha: string;
-  tipoUsuario: string;
   tituloPost: string;
   clicou: boolean
   border: string
@@ -126,7 +125,7 @@ export class UsuarioEditComponent implements OnInit {
     if (this.confirmarSenha.length < 8) {
       this.alertas.showAlertWarning('A senha deve ter no minimo 8 caracteres!');
     } else {
-      this.usuario.tipo = this.tipoUsuario;
+      this.usuario.tipo = environment.tipo;
 
       if (this.usuario.senha != this.confirmarSenha) {
         this.alertas.showAlertDanger('As senha estão incorretas');
