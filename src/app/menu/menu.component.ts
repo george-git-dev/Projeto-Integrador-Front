@@ -1,7 +1,6 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
-import { InicioComponent } from '../inicio/inicio.component';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
@@ -30,15 +29,12 @@ export class MenuComponent implements OnInit {
   idUsuario = environment.idUsuario
   idTema: number
 
-  inicio: InicioComponent
-
   constructor(
     private router: Router,
     private postagemService: PostagemService,
     private authService: AuthService,
     private temaService: TemaService,
     private alertas: AlertasService
-    // private inicioComponent: InicioComponent
   ) { }
 
   ngOnInit() {
@@ -51,7 +47,6 @@ export class MenuComponent implements OnInit {
     this.postagemService.refreshToken()
     this.authService.refreshToken()
     this.temaService.refreshToken()
-    this.getAllPostagensInicio()
     this.getAllTemas()
   }
 
@@ -65,12 +60,6 @@ export class MenuComponent implements OnInit {
     this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
       this.tema = resp
     })
-  }
-
-  getAllPostagensInicio() {
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
-      this.listaPostagens = resp;
-    });
   }
 
   findByIdUsuario() {
@@ -90,7 +79,6 @@ export class MenuComponent implements OnInit {
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
-      this.inicio.getAllPostagens// this.getAllPostagensInicio()
     })
   }
 

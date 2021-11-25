@@ -74,7 +74,7 @@ export class InicioComponent implements OnInit {
     });
   }
 
-  getAllPostagens() {
+  public getAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp;
     });
