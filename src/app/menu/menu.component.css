@@ -1,31 +1,32 @@
 .fa.fa-plus-circle {
-    font-size: 20px;
-    color: black;
+  font-size: 20px;
+  color: black;
 }
 
 .fa.fa-lock {
-    font-size: 20px;
-    color: black;
+  font-size: 20px;
+  color: black;
 }
 .fa:hover {
-    color: rgb(83, 83, 83);
+  color: rgb(83, 83, 83);
 }
 
-.br-50{
-    border-radius: 50px;
+.br-50 {
+  border-radius: 50px;
+}
+
+.br-25 {
+  border-radius: 25px;
 }
 
 a {
-    cursor: pointer;
-    text-decoration: none;
-    
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .foto-usuario {
-  
-    width: 50px;
-    height: 50px;
-  
-    object-fit: cover;
-}
+  width: 50px;
+  height: 50px;
 
+  object-fit: cover;
+}
