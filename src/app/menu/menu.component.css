@@ -30,3 +30,34 @@ a {
 
   object-fit: cover;
 }
+
+.modal-dialog{
+  overflow-y: initial !important
+}
+.modal-body{
+  height: 400px;
+  overflow-y: auto;
+}
+
+.foto-usuario-modal {
+  width: 70px;
+  height: 70px;
+
+  object-fit: cover;
+}
+
+.fa.fa-trash {
+  font-size: 25px;
+}
+
+.fa.fa-user-times {
+  font-size: 20px;
+}
+
+.fa.fa-user-plus {
+  font-size: 20px;
+}
+
+
+
+

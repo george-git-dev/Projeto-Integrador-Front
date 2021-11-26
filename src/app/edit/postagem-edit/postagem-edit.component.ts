@@ -76,6 +76,7 @@ export class PostagemEditComponent implements OnInit {
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem atualizada!')
       this.router.navigate(['/usuario-edit'])
+      
     })
 
   }
