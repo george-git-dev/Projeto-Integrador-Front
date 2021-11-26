@@ -136,10 +136,10 @@ export class UsuarioEditComponent implements OnInit {
   clicado() {
     
     if(this.clicou == true) {
-      this.border = '0px'
+      this.border = '25px'
       this.clicou = false
     } else {
-      this.border = '25px'
+      this.border = '0px'
       this.clicou = true
     }
   }
