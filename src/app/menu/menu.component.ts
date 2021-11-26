@@ -25,6 +25,7 @@ export class MenuComponent implements OnInit {
   
   listaPostagens: Postagem[]
   listaTema: Tema[]
+  listaUsuarios: Usuario[]
 
   idUsuario = environment.idUsuario
   idTema: number
@@ -48,11 +49,18 @@ export class MenuComponent implements OnInit {
     this.authService.refreshToken()
     this.temaService.refreshToken()
     this.getAllTemas()
+    this.getAllUsuarios()
   }
 
   getAllTemas() {
     this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
       this.listaTema = resp
+    })
+  }
+
+  getAllUsuarios() {
+    this.authService.getAllUsuarios().subscribe((resp: Usuario[]) => {
+      this.listaUsuarios = resp
     })
   }
 
@@ -65,6 +73,13 @@ export class MenuComponent implements OnInit {
   findByIdUsuario() {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
       this.usuario = resp
+    })
+  }
+
+  findByIdAnyUsuario(id: number) {
+    this.authService.getByIdUsuario(id).subscribe((resp: Usuario) => {
+      this.usuario = resp
+      this.atualizaStatus()
     })
   }
 
@@ -96,7 +111,7 @@ export class MenuComponent implements OnInit {
   }
 
   mostraAdmin() {
-    // console.log(environment.tipo)
+
     let admin: boolean = false
 
     if(environment.tipo == 'adm') {
@@ -104,6 +119,31 @@ export class MenuComponent implements OnInit {
     }
 
     return admin;
+  }
+
+  atualizaStatus() {
+    this.usuario.senha = '123456789'
+    
+    if(this.usuario.userAtivo == true) {
+      console.log('passou')
+      this.usuario.userAtivo = false      
+    } else {
+      this.usuario.userAtivo = true
+    }
+    
+    this.authService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
+      this.usuario = resp
+      this.alertas.showAlertSuccess('Status do usuário atualizado com sucesso!');
+      this.getAllUsuarios()
+      
+    })
+  }
+
+  apagarUsuario(id: number) {
+    this.authService.deleteUsuario(id).subscribe(() => {
+      this.alertas.showAlertSuccess('Usuário apagado.');
+      this.getAllUsuarios()
+    })
   }
 
 }

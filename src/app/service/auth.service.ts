@@ -52,6 +52,14 @@ export class AuthService {
     );
   }
 
+  getAllUsuarios(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>('https://projetosinergy.herokuapp.com/usuario/todos', this.token)
+  }
+
+  deleteUsuario(id: number) {
+    return this.http.delete(`https://projetosinergy.herokuapp.com/usuario/deletar/${id}`, this.token)
+  }
+
   logado() {
     let ok: boolean = false;
 
