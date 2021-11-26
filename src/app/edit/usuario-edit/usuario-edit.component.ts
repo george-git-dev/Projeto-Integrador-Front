@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Postagem } from 'src/app/model/Postagem';
 import { Tema } from 'src/app/model/Tema';
 import { Usuario } from 'src/app/model/Usuario';
@@ -20,23 +20,25 @@ export class UsuarioEditComponent implements OnInit {
   confirmarSenha: string;
   tipoUsuario: string;
   tituloPost: string;
-  clicou: boolean
-  border: string
+  clicou: boolean;
+  border: string;
 
   listaTema: Tema[];
   nomeTema: string;
-  tema: Tema = new Tema()
-  idTema: number
+  tema: Tema = new Tema();
+  idTema: number;
 
-  key = 'data'
-  reverse = true
+  key = 'data';
+  reverse = true;
 
   listaPostagens: Postagem[];
-  idPostagem: number
+  idPostagem: number;
   postagem: Postagem = new Postagem();
 
   foto = environment.foto;
   nome = environment.nome;
+  token = environment.token;
+  userId = environment.idUsuario;
 
   constructor(
     private router: Router,
@@ -48,17 +50,27 @@ export class UsuarioEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0);
     environment.rodapeOff = true;
+
     if (environment.token == '') {
       this.router.navigate(['/login']);
     }
+
     this.authService.refreshToken();
 
     this.idUsuario = this.route.snapshot.params['id'];
+    
+
+    this.getAllPostagens();
     this.postagemByIdUsuario();
     this.getAllTemas();
-    this.postagemByIdUsuario();
+    
+    console.log(this.idUsuario, 'Id quando entra no edit')
+    console.log(environment.nome)
+    console.log(environment.email)
+    console.log(environment.idUsuario)
+    console.log(environment.tipo)
   }
 
   confirmSenha(event: any) {
@@ -67,13 +79,28 @@ export class UsuarioEditComponent implements OnInit {
 
   getAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
+      
+    console.log(environment.nome)
+    console.log(environment.email)
+    console.log(environment.idUsuario)
+    console.log(environment.tipo)
       this.listaPostagens = resp;
     });
   }
 
   getAllTemas() {
     this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
+      
+    console.log(this.idTema, 'findByTituloPostagem')
       this.listaTema = resp;
+    });
+  }
+
+  findByIdTema() {
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
+      
+    console.log(this.idTema, 'findByTituloPostagem')
+      this.tema = resp;
     });
   }
 
@@ -81,17 +108,30 @@ export class UsuarioEditComponent implements OnInit {
     this.authService
       .getByIdUsuario(this.idUsuario)
       .subscribe((resp: Usuario) => {
+        
+    console.log(this.idTema, 'findByTituloPostagem')
         this.usuario = resp;
       });
   }
 
   findByIdUsuario(id: number) {
     this.authService.getByIdUsuario(id).subscribe((resp: Usuario) => {
+      
+    console.log(this.idTema, 'findByTituloPostagem')
       this.usuario = resp;
     });
   }
 
+  findByIdPostagem(id: number) {
+    this.postagemService.getPostagemById(id).subscribe((resp: Postagem) => {
+      
+    console.log(this.idTema, 'findByTituloPostagem')
+      this.postagem = resp;
+    });
+  }
+
   findByTituloPostagem() {
+    console.log(this.idTema, 'findByTituloPostagem')
     if (this.tituloPost == '') {
       this.getAllPostagens();
     } else {
@@ -104,21 +144,35 @@ export class UsuarioEditComponent implements OnInit {
   }
 
   getPostagemById(idPostagem: number) {
-    this.postagemService.getPostagemById(idPostagem).subscribe((postagem: Postagem) => {
-      this.postagem = postagem;
-    });
+    this.postagemService
+      .getPostagemById(idPostagem)
+      .subscribe((postagem: Postagem) => {
+        
+    console.log(this.idTema, 'findByTituloPostagem')
+        this.postagem = postagem;
+        this.nomeTema = postagem.tema.titulo;
+      });
   }
 
-  findByIdTema() {
-    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
-      this.tema = resp;
-    });
-  }
+  
 
-  apagar() {
+  // apagarPostagem() {                     // Outro tipo de metodo para deletar
+  //   console.log(this.idPostagem)
+  //   this.findByIdPostagem(this.idPostagem)
+  //   this.postagemService.deletePostagem(this.idPostagem).subscribe(() => {
+  //     this.alertas.showAlertSuccess('Postagem apagada.');
+  //     this.router.navigate(['/inicio']);
+  //   });
+  // }
+
+  apagarPostagem(idDeletar: number) {
+    this.idPostagem = idDeletar;
+    this.findByIdPostagem(this.idPostagem);
     this.postagemService.deletePostagem(this.idPostagem).subscribe(() => {
-      this.alertas.showAlertSuccess('Postagem deletada');
+      this.alertas.showAlertSuccess('Postagem apagada.');
+      this.postagemByIdUsuario();
     });
+    
   }
 
   findByNomeTema() {
@@ -134,24 +188,32 @@ export class UsuarioEditComponent implements OnInit {
   }
 
   clicado() {
-    
-    if(this.clicou == true) {
-      this.border = '25px'
-      this.clicou = false
+    if (this.clicou == true) {
+      this.border = '25px';
+      this.clicou = false;
     } else {
-      this.border = '0px'
-      this.clicou = true
+      this.border = '0px';
+      this.clicou = true;
     }
   }
 
   atualizarPostagem() {
-    this.tema.idTema = this.idTema
-    this.postagem.tema = this.tema
-    this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
-      this.postagem = resp
-      this.alertas.showAlertSuccess('Postagem atualizada!')
-      this.postagemByIdUsuario()
-    })
+    if(this.idTema == null){
+      this.postagem.tema.titulo == this.nomeTema;
+    }else{
+      this.tema.idTema = this.idTema;
+      this.postagem.tema = this.tema;
+    }
+
+    console.log(this.idTema, 'findByTituloPostagem')
+    this.postagemService
+      .putPostagem(this.postagem)
+      .subscribe((resp: Postagem) => {
+        this.postagem = resp;
+        this.alertas.showAlertSuccess('Postagem atualizada!');
+        this.postagemByIdUsuario();
+        this.idTema = 0
+      });
   }
 
   atualizarUsuario() {
