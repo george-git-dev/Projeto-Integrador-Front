@@ -51,6 +51,11 @@ export class CadastroComponent implements OnInit {
           this.usuario = resp;
           this.router.navigate(['/login']);
           this.alertas.showAlertSuccess('Cadastro realizado com sucesso!');
+        },
+        (erro) => {
+          if (erro.status == 400) {
+            this.alertas.showAlertWarning('E-mail já cadastrado');
+          }
         });
       }
     }
