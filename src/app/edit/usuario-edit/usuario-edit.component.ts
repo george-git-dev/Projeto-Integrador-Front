@@ -25,11 +25,15 @@ export class UsuarioEditComponent implements OnInit {
 
   listaTema: Tema[];
   nomeTema: string;
+  tema: Tema = new Tema()
+  idTema: number
 
   key = 'data'
   reverse = true
 
   listaPostagens: Postagem[];
+  idPostagem: number
+  postagem: Postagem = new Postagem();
 
   foto = environment.foto;
   nome = environment.nome;
@@ -53,8 +57,8 @@ export class UsuarioEditComponent implements OnInit {
 
     this.idUsuario = this.route.snapshot.params['id'];
     this.postagemByIdUsuario();
-    // this.findByIdUsuario(this.idUsuario);
-    
+    this.getAllTemas();
+    this.postagemByIdUsuario();
   }
 
   confirmSenha(event: any) {
@@ -99,6 +103,24 @@ export class UsuarioEditComponent implements OnInit {
     }
   }
 
+  getPostagemById(idPostagem: number) {
+    this.postagemService.getPostagemById(idPostagem).subscribe((postagem: Postagem) => {
+      this.postagem = postagem;
+    });
+  }
+
+  findByIdTema() {
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
+      this.tema = resp;
+    });
+  }
+
+  apagar() {
+    this.postagemService.deletePostagem(this.idPostagem).subscribe(() => {
+      this.alertas.showAlertSuccess('Postagem deletada');
+    });
+  }
+
   findByNomeTema() {
     if (this.nomeTema == '') {
       this.getAllTemas();
@@ -122,7 +144,17 @@ export class UsuarioEditComponent implements OnInit {
     }
   }
 
-  atualizar() {
+  atualizarPostagem() {
+    this.tema.idTema = this.idTema
+    this.postagem.tema = this.tema
+    this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
+      this.postagem = resp
+      this.alertas.showAlertSuccess('Postagem atualizada!')
+      this.postagemByIdUsuario()
+    })
+  }
+
+  atualizarUsuario() {
     if (this.confirmarSenha.length < 8) {
       this.alertas.showAlertWarning('A senha deve ter no minimo 8 caracteres!');
     } else {
