@@ -34,6 +34,7 @@ export class PostagemDeleteComponent implements OnInit {
     this.postagemService.refreshToken()
     this.idPostagem = this.route.snapshot.params['id'];
     this.findByIdPostagem(this.idPostagem);
+    console.log(this.idPostagem)
   }
 
   findByIdPostagem(id: number) {

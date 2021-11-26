@@ -108,8 +108,8 @@
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-danger btn-lg mr-3 br-50"
-                      routerLink='/inicio'>Cancelar</button>
+                    <button type="submit" class="btn btn-danger btn-lg mr-3 br-50" (click)="clicado()"
+                      data-toggle="collapse" data-target="#editarUsuario">Cancelar</button>
 
                     <button type="submit" class="btn btn-primary btn-lg br-50"
                       (click)="atualizarUsuario()">Atualizar</button>
@@ -134,11 +134,12 @@
         <div class="col-md-12 p-0">
           <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-            <a class="nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
-              id="nav-editarUsuario-tab" data-toggle="tab" href="#editUsuario" role="tab"
-              aria-controls="nav-editarUsuario" aria-selected="false">Editar Usuario</a>
+            <a (click)="getAllPostagens()"
+              class=" nav-link active font-weight-bold br-25 d-flex justify-content-center text-center"
+              id="nav-editarUsuario-tab" data-toggle="tab" href="#top" role="tab" aria-controls="nav-editarUsuario"
+              aria-selected="false">Editar Usuario</a>
 
-            <a (click)="postagemByIdUsuario()"
+            <a (click)="getAllPostagens()"
               class="nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
               id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
               aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Publicações</a>
@@ -172,17 +173,18 @@
 
               <!-- PESQUISA POR TEMA -->
               <!-- <div class="row d-flex justify-content-center mt-5 mb-4">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <input type="text" class="form-control br-50" id="titulo" placeholder="Procurar por tema"
-                      [(ngModel)]="nomeTema" (keyup)="findByNomeTema()" />
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input type="text" class="form-control br-50" id="titulo" placeholder="Procurar por tema"
+                        [(ngModel)]="nomeTema" (keyup)="findByNomeTema()" />
+                    </div>
                   </div>
-                </div>
-              </div> -->
+                </div> -->
               <!-- PESQUISA POR TEMA -->
 
 
               <div class="text-center mb-4" *ngFor="let item of usuario.postagens | orderBy : key : reverse">
+                <!--  | orderBy : key : reverse" -->
                 <div class="wrapper">
                   <div class="p-3">
                     <div class="row">
@@ -220,7 +222,7 @@
                               <a class="dropdown-item" data-toggle="modal" data-target="#deletePostagem"
                                 (click)="getPostagemById(item.idPostagem)">Deletar</a>
 
-                              <a class="dropdown-item" [routerLink]="['/postagem-delete', item.idPostagem]">Apagar</a>
+                              <!-- <a class="dropdown-item" [routerLink]="['/postagem-delete', item.idPostagem]">Apagar</a> -->
 
                             </div>
                           </div>
@@ -305,8 +307,8 @@
           </div>
 
           <div class="form-group">
-            <label for="texto">Escolha um tema:</label>
-            <select class="form-control br-25" name="tema" id="tema" [(ngModel)]='idTema' (change)='findByIdTema()'>
+            <label for="texto">Escolha um tema: *</label>
+            <select class="form-control br-25" name="temaNovo" id="temaNovo" [(ngModel)]='idTema'>
               <option *ngFor='let item of listaTema' value='{{ item.idTema }}'>
                 {{ item.titulo }}
               </option>
@@ -333,38 +335,39 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
 
-          <div class="col-md-12">
-            <h3 class="text-center text-secondary">Apagar postagem</h3>
-          </div>
+        <div class="col-md-12">
+          <h3 class="text-center text-secondary">Apagar postagem</h3>
+        </div>
 
-          <div class="row mt-2 mb-2">
-            <div class="col-md-12">
-              <h5 class="text-center text-secondary">
-                Tem certeza que deseja apagar essa postagem?
-              </h5>
+        <div class="row mt-2 mb-2">
+          <div class="col-md-12">
+            <h5 class="text-center text-secondary">
+              Tem certeza que deseja apagar essa postagem?
+            </h5>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title m-0">{{ postagem.titulo }}</h5>
+              <small class="text-muted">Tema: {{ nomeTema }}</small>
+              <p class="card-text mt-3">{{ postagem.texto }}</p>
+              <p class="card-text">
+                <small class="text-muted">{{ postagem.date | date: "dd/MM/yyyy" }} às
+                  {{ postagem.date | date: "HH:mm" }}</small>
+              </p>
             </div>
           </div>
-
-          <div class="row d-flex justify-content-center">
-              <div class="card text-center">
-                <div class="card-body">
-                  <h5 class="card-title m-0">{{ postagem.titulo }}</h5>
-                  <small class="text-muted">Tema: {{ postagem.tema }}</small>
-                  <p class="card-text mt-3">{{ postagem.texto }}</p>
-                  <p class="card-text">
-                    <small class="text-muted">{{ postagem.date | date: "dd/MM/yyyy" }} às
-                      {{ postagem.date | date: "HH:mm" }}</small>
-                  </p>
-                </div>
-              </div>
-          </div>
+        </div>
 
         <!-- </div> -->
 
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger br-50 px-3" data-dismiss="modal">Cancelar</button>
-          <button (click)="apagar()" class="btn btn-success br-50"
-            data-dismiss="modal">Deletar</button>
+          <button class="btn btn-danger br-50" (click)="apagarPostagem(postagem.idPostagem)" data-dismiss="modal">
+            Deletar
+          </button>
         </div>
       </div>
     </div>
