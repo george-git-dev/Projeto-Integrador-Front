@@ -1,3 +1,58 @@
+<!-- MODAL EDIT POSTAGEM -->
+<!-- <div class="container">
+    <div class="modal fade" id="editPostagem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true" aria-modal="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Editar Postagem</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="titulo">Título</label>
+                        <input type="text" class="form-control" id="titulo" placeholder="Digite o título"
+                            [(ngModel)]='postagem.titulo'>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="texto">Texto</label>
+                        <textarea class="form-control" id="texto" rows="3" [(ngModel)]='postagem.texto'></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tema">Escolha seu tema ou <a routerLink='/tema' data-dismiss="modal">cadastre um
+                                novo</a></label>
+                        <select class="form-control" name="tema" id="tema" [(ngModel)]='idTema'
+                            (change)='findByIdTema()'>
+                            <option *ngFor='let item of listaTemas' value='{{item.idTema}}'>
+                                {{item.titulo}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <a routerLink='/inicio' class="btn btn-danger mr-4">Cancelar</a>
+                        <button (click)="atualizar()" class="btn btn-success">Atualizar</button>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary br-50 px-3"
+                        data-dismiss="modal">Cancelar</button>
+                    <button (click)="atualizar()" class="btn btn-success">Atualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- /Modal -->
+
 <div class="container mt-5 mb-5">
 
     <div class="row">
@@ -20,8 +75,13 @@
             </div>
 
             <div class="form-group">
-                <label for="tema">Escolha seu tema ou <a routerLink='/tema' data-dismiss="modal">cadastre um
-                        novo</a></label>
+                <label for="Imagem">Imagem</label>
+                <input type="text" class="form-control" id="foto" placeholder="Insira o link de uma imagem"
+                    [(ngModel)]='postagem.foto'>
+            </div>
+
+            <div class="form-group">
+                <label for="tema">Escolha seu tema ou <a routerLink='/tema' data-dismiss="modal">cadastre um novo</a></label>
                 <select class="form-control" name="tema" id="tema" [(ngModel)]='idTema' (change)='findByIdTema()'>
                     <option *ngFor='let item of listaTemas' value='{{item.idTema}}'>
                         {{item.titulo}}
