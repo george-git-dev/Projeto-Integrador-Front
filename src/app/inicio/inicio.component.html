@@ -1,6 +1,6 @@
 <!-- BEM-VINDO/IMAGEM -->
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" id='top'>
         <div class="col-md-12 d-flex justify-content-start align-items-center" id="img-bg">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-10">
@@ -29,7 +29,8 @@
                             id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
                             aria-controls="nav-todasPostagens" aria-selected="true">Todas as Publicações</a>
 
-                        <a class=" nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
+                        <a (click)="getAllPostagens()"
+                            class=" nav-item nav-link font-weight-bold br-25 d-flex justify-content-center text-center"
                             id="nav-postagensPorTema-tab" data-toggle="tab" href="#postagensPorTema" role="tab"
                             aria-controls="nav-postagensPorTema" aria-selected="false">Publicações por Tema</a>
 
@@ -92,7 +93,7 @@
                                                 </div>
 
                                                 <div class="row d-flex align-items-end mb-2">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 d-flex justify-content-start">
                                                         <label for="texto" class="ml-1">Escolha um tema:</label>
                                                         <select name="tema" id="tema" class="form-control br-25"
                                                             [(ngModel)]="idTema" (change)="findByIdTema()">
@@ -102,7 +103,14 @@
                                                             </option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-6 d-flex justify-content-center">
+
+                                                    <div class="col-md-12 d-flex justify-content-center">
+                                                        <button type="button" (click)="clicado()" data-toggle="collapse"
+                                                            data-target="#criarPostagem" aria-expanded="false"
+                                                            aria-controls="criarPostagem"
+                                                            class="btn btn-outline-danger btn-block br-50">
+                                                            Cancelar
+                                                        </button>
                                                         <button type="button"
                                                             class="btn btn-outline-primary btn-block br-50"
                                                             (click)="publicar()">
@@ -347,7 +355,7 @@
             <div class="row d-flex justify-content-end m-3">
                 <div class="wrapper">
                     <div class="col-md-12 d-flex justify-content-center">
-                        <a href="#top"><i class="fa fa-arrow-up" aria-hidden="false"></i> </a>
+                        <a href='#top'><i class="fa fa-arrow-up" aria-hidden="true"></i> </a>
                     </div>
                 </div>
             </div>
