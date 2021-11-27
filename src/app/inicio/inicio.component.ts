@@ -129,7 +129,7 @@ export class InicioComponent implements OnInit {
   }
 
   clicado() {
-    
+
     if(this.clicou == true) {
       this.border = '0px'
       this.clicou = false
@@ -138,6 +138,6 @@ export class InicioComponent implements OnInit {
       this.clicou = true
     }
   }
-  
-  
+
+
 }
