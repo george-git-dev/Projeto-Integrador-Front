@@ -27,7 +27,7 @@ export class UsuarioEditComponent implements OnInit {
   tema: Tema = new Tema();
   idTema: number;
 
-  key = 'data';
+  key = 'date';
   reverse = true;
 
   listaPostagens: Postagem[];
