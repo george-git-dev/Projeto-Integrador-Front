@@ -30,7 +30,7 @@ export class InicioComponent implements OnInit {
   clicou: boolean
   border: string
 
-  key = 'data'
+  key = 'date'
   reverse = true
 
   foto = environment.foto;
