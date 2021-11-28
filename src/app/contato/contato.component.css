@@ -11,8 +11,11 @@
 } */
 
 .bg-blue {
-  
   background-color: #4158d0;
+}
+
+.pt-100 {
+  padding-top: 50px;
 }
 
 #team {
