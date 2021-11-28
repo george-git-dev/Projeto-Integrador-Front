@@ -1,4 +1,4 @@
-#img-bg {
+/* #img-bg {
   background-image: url("https://i.imgur.com/Qnc9Fge.png");
 
   background-position: center;
@@ -8,10 +8,15 @@
   background-size: cover;
   background-size: 200px;
   background-color: #4158d0;
+} */
+
+.bg-blue {
+  background-color: #4158d0;
 }
 
-
-
+.pt-100 {
+  padding-top: 50px;
+}
 
 #team {
   padding: 60px 0;

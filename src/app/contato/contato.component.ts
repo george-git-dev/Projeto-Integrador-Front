@@ -15,12 +15,12 @@ export class ContatoComponent implements OnInit {
     private authService: AuthService
   ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     window.scroll(0, 0);
 
-    // if (environment.token == '') {
-    //   this.router.navigate(['/login']);
-    // }
+    if (environment.token == '') {
+      this.router.navigate(['/login']);
+    }
   }
 
 }

@@ -92,10 +92,10 @@
                                                         placeholder="Insira o link da foto" />
                                                 </div>
 
-                                                <div class="row d-flex align-items-end mb-2">
-                                                    <div class="col-md-6 d-flex justify-content-start">
-                                                        <label for="texto" class="ml-1">Escolha um tema:</label>
-                                                        <select name="tema" id="tema" class="form-control br-25"
+                                                <div class="row mb-2">
+                                                    <div class="col-md-12">
+                                                        <label for="texto">Escolha um tema:</label>
+                                                        <select name="tema" id="tema" class="form-control br-25 mb-4"
                                                             [(ngModel)]="idTema" (change)="findByIdTema()">
                                                             <option *ngFor="let item of listaTema"
                                                                 value="{{ item.idTema }}">
@@ -104,15 +104,15 @@
                                                         </select>
                                                     </div>
 
-                                                    <div class="col-md-12 d-flex justify-content-center">
+                                                    <div class="col-md-12 text-center">
                                                         <button type="button" (click)="clicado()" data-toggle="collapse"
                                                             data-target="#criarPostagem" aria-expanded="false"
                                                             aria-controls="criarPostagem"
-                                                            class="btn btn-outline-danger btn-block br-50">
+                                                            class="btn btn-outline-primary px-5 br-50">
                                                             Cancelar
                                                         </button>
                                                         <button type="button"
-                                                            class="btn btn-outline-primary btn-block br-50"
+                                                            class="btn btn-primary br-50 px-5 ml-3"
                                                             (click)="publicar()">
                                                             Publicar
                                                         </button>
